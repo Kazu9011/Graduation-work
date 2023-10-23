@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CatchCollision : MonoBehaviour
+public class PlayerCatchCollision : MonoBehaviour
 {
     Player _player;
     GameObject _playerobj;
-   
+    GameObject _ballobj;
+    Ball _ball;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,14 @@ public class CatchCollision : MonoBehaviour
         {
             if (ball.gameObject.name == "Ball")
             {
-                _player.SetState(EPlayerState.Catch);
+                _ballobj = GameObject.Find("Ball");
+                _ball = _ballobj.GetComponent<Ball>();
+                if (_ball.CatchFlag==false)
+                {
+                    _ball.CatchFlag = true;
+                    _player.SetState(EPlayerState.Catch);
+                }
+               
             }
         }
     }

@@ -6,6 +6,7 @@ public class EnemyStateAim : IEnemyState
 {
     Enemy _enemy;
     GameObject ballobj;
+    GameObject playerobj;
     public EEnemyState State => EEnemyState.Aim;
     public EnemyStateAim(Enemy plaeyr) => _enemy = plaeyr;
     public void Entry()
@@ -17,23 +18,23 @@ public class EnemyStateAim : IEnemyState
 
     public void Update()
     {
-        if (Input.GetButton("A"))
-        {
-            //ボールを所持状態
-            ballobj = GameObject.Find("Ball");
-            ballobj.transform.position = _enemy.transform.position + _enemy.transform.forward * _enemy.BallDistance;
-            _enemy.SetDirection(_enemy.Dir);
-            return;
-        }
-        if (Input.GetButtonUp("A"))
-        {
-            _enemy.SetState(EEnemyState.Hitting);
-        }
+        
+        //ボールを所持状態
+        ballobj = GameObject.Find("Ball");
+        ballobj.transform.position = _enemy.transform.position + _enemy.transform.forward * _enemy.BallDistance;
+        //
+        playerobj = GameObject.Find("DogPolyart");
+
+        Vector3 aim = playerobj.transform.position - _enemy.transform.position;
+        Quaternion look = Quaternion.LookRotation(aim);
+        _enemy.transform.localRotation = look;
+        _enemy.SetState(EEnemyState.Hitting);
+        //
 
     }
 
     public void Exit()
     {
-
+       
     }
 }

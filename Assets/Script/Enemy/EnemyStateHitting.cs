@@ -6,6 +6,7 @@ public class EnemyStateHitting : IEnemyState
 {
     Enemy _enemy;
     GameObject ballobj;
+    Ball _ball;
     public EEnemyState State => EEnemyState.Hitting;
 
     public EnemyStateHitting(Enemy plaeyr) => _enemy = plaeyr;
@@ -18,7 +19,9 @@ public class EnemyStateHitting : IEnemyState
         ballobj = GameObject.Find("Ball");
         Rigidbody rb = ballobj.GetComponent<Rigidbody>();
         rb.AddForce(_enemy.transform.forward* _enemy.HitPower, ForceMode.Impulse);
-        _enemy.SetState(EEnemyState.Idle);
+        _ball = ballobj.GetComponent<Ball>();
+        _ball.CatchFlag = false;
+        _enemy.SetState(EEnemyState.Move);
     }
     // Update is called once per frame
     public void Update()

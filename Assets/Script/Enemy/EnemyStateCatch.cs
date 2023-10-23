@@ -13,9 +13,10 @@ public class EnemyStateCatch : IEnemyState
     public void Entry()
     {
         _enemy.CurretCatchInterval = _enemy.CatchIntervalTime;
-        Debug.Log("ボールをつかんだ");
+        Debug.Log("敵がボールをつかんだ");
         _enemy.CatchFlag = true;
-        _enemy.SetState(EEnemyState.Idle);
+        _enemy.SetState(EEnemyState.Aim);
+        //_enemy.SetState(EEnemyState.Hitting);
     }
     void IEnemyState.Update()
     {

@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public enum EEnemyState
 {
     Idle,
     Move,
-    Damage,
     Dead,
     Hitting,
     Catch,
@@ -58,6 +57,22 @@ public class Enemy : MonoBehaviour
             curretcatchinterval = value;
         }
     }
+    public float CurretEnableTime = 0;
+    public float NavEnabledTime = 20;
+    public void ChangeNavEnable(bool Is)
+    {
+        NavMeshAgent nav = GetComponent<NavMeshAgent>();
+        if (Is)
+        {
+            Debug.Log("ナビをつけた");
+            nav.enabled = true;
+        }
+        else
+        {
+            Debug.Log("ナビを消した");
+            nav.enabled = false;
+        }
+    }
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -71,7 +86,7 @@ public class Enemy : MonoBehaviour
         //animeStateInfo = animator.GetCurrentAnimatorStateInfo(0);
         // Stateを初期化
         _context = new EnemyStateContext();
-        _context.Init(this, EEnemyState.Idle);
+        _context.Init(this, EEnemyState.Move);
 
 
 
@@ -90,9 +105,9 @@ public class Enemy : MonoBehaviour
         _dir = new Vector3(Input.GetAxis("L_Stick_H"), 0, Input.GetAxis("L_Stick_V")).normalized;
         _context.Update();
 
-        animator.Update(0f);
-        animeStateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        Mathf.Repeat(animeStateInfo.normalizedTime, 1.0f);
+        //animator.Update(0f);
+        //animeStateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        //Mathf.Repeat(animeStateInfo.normalizedTime, 1.0f);
         //Debug.Log(animeStateInfo.length);
         //animeStateInfo = animator.GetCurrentAnimatorStateInfo(0);
         //Debug.Log(Mathf.Repeat(animeStateInfo.normalizedTime, 1.0f));
@@ -119,7 +134,7 @@ public class Enemy : MonoBehaviour
     }
 
     public void AddVelocity(Vector3 vel) => rb.AddForce(vel, ForceMode.Force);
-    public void SetDirection(Vector3 dir) => rb.rotation = Quaternion.LookRotation(dir);
+    public void SetDirection(Vector3 dir) => transform.rotation = Quaternion.LookRotation(dir);
     public void SetState(EEnemyState state) => _context.ChangeState(state);
     public void SetAnimation(string animName, bool flg) => animator.SetBool(animName, flg);
 

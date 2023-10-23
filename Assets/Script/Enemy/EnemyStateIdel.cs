@@ -3,32 +3,32 @@ using UnityEngine;
 
 public class EnemyStateIdel : IEnemyState
 {
-    Enemy _player;
+    Enemy _enemy;
     GameObject ballobj;
     public EEnemyState State => EEnemyState.Idle;
-    public EnemyStateIdel(Enemy plaeyr) => _player = plaeyr;
+    public EnemyStateIdel(Enemy plaeyr) => _enemy = plaeyr;
     public void Entry()
     {
-       _player.AddVelocity(Vector3.zero);
+       _enemy.AddVelocity(Vector3.zero);
     }
     public void Update()
     {       
-        if (_player.Dir.x != 0 || _player.Dir.z != 0)
-        {
-            _player.SetState(EEnemyState.Move);
-            return;
-        }
-        if (_player.CatchFlag)
+        //if (_enemy.Dir.x != 0 || _enemy.Dir.z != 0)
+        //{
+        //    _enemy.SetState(EEnemyState.Move);
+        //    return;
+        //}
+        if (_enemy.CatchFlag)
         {
             //ŠÔŒ¸­
-            if (_player.CurretCatchInterval > 0) _player.CurretCatchInterval -= Time.deltaTime;
+            if (_enemy.CurretCatchInterval > 0) _enemy.CurretCatchInterval -= Time.deltaTime;
             //ƒ{[ƒ‹‚ğŠó‘Ô
             ballobj = GameObject.Find("Ball");
-            ballobj.transform.position = _player.transform.position + _player.transform.forward * _player.BallDistance ;
-            if (Input.GetButtonDown("A"))
-            {
-                _player.SetState(EEnemyState.Aim);
-            }
+            ballobj.transform.position = _enemy.transform.position + _enemy.transform.forward * _enemy.BallDistance ;
+            //if (Input.GetButtonDown("A"))
+            //{
+            //    _enemy.SetState(EEnemyState.Aim);
+            //}
         }
     }
     public void Exit()

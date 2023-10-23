@@ -6,6 +6,7 @@ public class PlayerStateHitting : IPlayerState
 {
     Player _player;
     GameObject ballobj;
+    Ball _ball;
     public EPlayerState State => EPlayerState.Hitting;
 
     public PlayerStateHitting(Player plaeyr) => _player = plaeyr;
@@ -18,6 +19,8 @@ public class PlayerStateHitting : IPlayerState
         ballobj = GameObject.Find("Ball");
         Rigidbody rb = ballobj.GetComponent<Rigidbody>();
         rb.AddForce(_player.transform.forward* _player.HitPower, ForceMode.Impulse);
+        _ball= ballobj.GetComponent<Ball>();
+        _ball.CatchFlag = false;
         _player.SetState(EPlayerState.Idle);
     }
     // Update is called once per frame

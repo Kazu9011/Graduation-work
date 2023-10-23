@@ -4,11 +4,12 @@ using UnityEngine;
 public class PlayerStateIdel : IPlayerState
 {
     Player _player;
+    GameObject ballobj;
     public EPlayerState State => EPlayerState.Idle;
     public PlayerStateIdel(Player plaeyr) => _player = plaeyr;
     public void Entry()
     {
-        _player.SetVelocity(Vector3.zero);
+       _player.AddVelocity(Vector3.zero);
     }
     public void Update()
     {       
@@ -17,11 +18,17 @@ public class PlayerStateIdel : IPlayerState
             _player.SetState(EPlayerState.Move);
             return;
         }
-
-        if (Input.GetButtonDown("A"))
+        if (_player.CatchFlag)
         {
-            _player.SetState(EPlayerState.Attack);
-            return;
+            //ŠÔŒ¸­
+            if (_player.CurretCatchInterval > 0) _player.CurretCatchInterval -= Time.deltaTime;
+            //ƒ{[ƒ‹‚ğŠó‘Ô
+            ballobj = GameObject.Find("Ball");
+            ballobj.transform.position = _player.transform.position + _player.transform.forward * _player.BallDistance ;
+            if (Input.GetButtonDown("A"))
+            {
+                _player.SetState(EPlayerState.Aim);
+            }
         }
     }
     public void Exit()

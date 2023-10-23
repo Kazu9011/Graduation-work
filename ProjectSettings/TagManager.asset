@@ -3,17 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PlayerLimit
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PlayerLimit
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Player
+  - Ball
+  - WallBall
   - 
   - 
   - 

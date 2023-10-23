@@ -1,9 +1,9 @@
 
-public interface IPlayerState
+public interface IEnemyState
 {
-    EPlayerState State { get; }
+    EEnemyState State { get; }
 
-    
+
     // ó‘ÔŠJn‚ÉÅ‰‚ÉÀs‚³‚ê‚é
     void Entry();
 

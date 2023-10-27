@@ -45,7 +45,7 @@ public class Ball : MonoBehaviour
                 setting.ChangeFieldCollision(false);
             }
             Rigidbody rb = GetComponent<Rigidbody>();
-            rb.AddExplosionForce(BombPower, transform.position, 1);
+            rb.AddExplosionForce(BombPower, transform.position, 0);
 
         }
         if (collision.gameObject.name == "Enemy")
@@ -63,7 +63,7 @@ public class Ball : MonoBehaviour
             enemy.ChangeNavEnable(false);
             enemy.CurretEnableTime = enemy.NavEnabledTime;
             Rigidbody rb = GetComponent<Rigidbody>();
-            rb.AddExplosionForce(BombPower, transform.position, 1);
+            rb.AddExplosionForce(BombPower, transform.position, 0);
 
             
 

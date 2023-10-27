@@ -24,7 +24,7 @@ public class EnemyStateMove : IEnemyState
         //
         enemyobj = GameObject.Find("Enemy");
         NavMeshAgent agent = enemyobj.GetComponent<NavMeshAgent>();
-        if (agent.enabled)
+        if (agent.enabled==true)
         {
             ballobj = GameObject.Find("Ball");
             agent.SetDestination(ballobj.transform.position);
@@ -34,7 +34,6 @@ public class EnemyStateMove : IEnemyState
         //Enemy ene = enemyobj.GetComponent<Enemy>();
         if (_enemy.CurretEnableTime>0)
         {
-            Debug.Log("‚P‚P‚P‚P‚P");
             _enemy.CurretEnableTime -= Time.deltaTime;
         }
         if (_enemy.CurretEnableTime <= 0 && agent.enabled==false)

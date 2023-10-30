@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
       
     }
 
-    public void AddVelocity(Vector3 vel) => rb.AddForce(vel, ForceMode.Force);
+    public void AddVelocity(Vector3 vel) => rb.AddForce(vel-rb.velocity, ForceMode.Force);
     public void SetDirection(Vector3 dir) => rb.rotation = Quaternion.LookRotation(dir);
     public void SetState(EPlayerState state) => _context.ChangeState(state);
     public void SetAnimation(string animName, bool flg) => animator.SetBool(animName, flg);

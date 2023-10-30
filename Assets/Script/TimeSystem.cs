@@ -19,8 +19,17 @@ public class TimeSystem : MonoBehaviour
     {
         TimeUI = GetComponent<TextMeshProUGUI>();
         currenttime -= Time.deltaTime;
+        if (currenttime<0.00f)
+        {
+            currenttime = 0.00f;
+        }
         TimeUI.text = currenttime.ToString("00.00");
+        if (currenttime == 0.00f)
+        {
+            Time.timeScale = 0.0f;
+        }
         
-        
+
+
     }
 }

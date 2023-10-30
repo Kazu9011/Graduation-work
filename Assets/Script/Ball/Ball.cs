@@ -34,7 +34,7 @@ public class Ball : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
        
-        if (collision.gameObject.name == "DogPolyart")
+        if (collision.gameObject.name == "DogPolyart" && CatchFlag==false)
         {
             Debug.Log("プレイヤーに当たった");
             //フィールド設定変更
@@ -48,7 +48,7 @@ public class Ball : MonoBehaviour
             rb.AddExplosionForce(BombPower, transform.position, 0);
 
         }
-        if (collision.gameObject.name == "Enemy")
+        if (collision.gameObject.name == "Enemy" && CatchFlag == false)
         {
             Debug.Log("敵に当たった");
             //フィールド設定変更

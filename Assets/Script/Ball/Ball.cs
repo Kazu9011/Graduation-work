@@ -8,6 +8,9 @@ public class Ball : MonoBehaviour
     GameObject Enemy;
     FieldSetting setting;
     public float BombPower = 10.0f;
+    public GameObject BallTargetObject;
+    Vector3 BallRestartPos;
+    public float RestartPositionOffset=10.0f;
     bool catchflag;
     public bool CatchFlag
     {
@@ -24,6 +27,8 @@ public class Ball : MonoBehaviour
     void Start()
     {
         CatchFlag = false;
+        BallRestartPos = BallTargetObject.transform.position;
+        BallRestartPos = BallTargetObject.transform.position;
     }
 
     // Update is called once per frame
@@ -45,8 +50,10 @@ public class Ball : MonoBehaviour
                 setting.ChangeFieldCollision(false);
             }
             Rigidbody rb = GetComponent<Rigidbody>();
+            //”š”­‚Ì—Í‚ð‰Á‚¦‚é
             rb.AddExplosionForce(BombPower, transform.position, 0);
-
+            transform.position = BallRestartPos + new Vector3(Random.Range(-RestartPositionOffset, RestartPositionOffset), 0.0f, Random.Range(-5, 5));
+            rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
         }
         if (collision.gameObject.name == "Enemy" && CatchFlag == false)
         {
@@ -60,13 +67,14 @@ public class Ball : MonoBehaviour
             }
             Enemy = GameObject.Find("Enemy");
             Enemy enemy = Enemy.GetComponent<Enemy>();
-            enemy.ChangeNavEnable(false);
-            enemy.CurretEnableTime = enemy.NavEnabledTime;
+            //enemy.ChangeNavEnable(false);
+            //enemy.CurretEnableTime = enemy.NavEnabledTime;
             Rigidbody rb = GetComponent<Rigidbody>();
+            //”š”­‚Ì—Í‚ð‰Á‚¦‚é
             rb.AddExplosionForce(BombPower, transform.position, 0);
-
+            transform.position = BallRestartPos + new Vector3(Random.Range(-RestartPositionOffset, RestartPositionOffset), 0.0f, Random.Range(-5, 5));
+            rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
             
-
         }
 
     }

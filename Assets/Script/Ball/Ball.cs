@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using KanKikuchi.AudioManager;
 public class Ball : MonoBehaviour
 {
+    GameObject explosioneffectobj;
+    ParticleSystem explosion;
+    //Resources.UnloadAsset(explosioneffectobj);
     GameObject Player;
     GameObject Enemy;
     FieldSetting setting;
@@ -29,6 +33,7 @@ public class Ball : MonoBehaviour
         CatchFlag = false;
         BallRestartPos = BallTargetObject.transform.position;
         BallRestartPos = BallTargetObject.transform.position;
+        explosioneffectobj = (GameObject)Resources.Load("EnergyExplosion");
     }
 
     // Update is called once per frame
@@ -51,9 +56,11 @@ public class Ball : MonoBehaviour
             }
             Rigidbody rb = GetComponent<Rigidbody>();
             //”š”­‚Ì—Í‚ð‰Á‚¦‚é
+            Instantiate(explosioneffectobj, transform.position, Quaternion.identity);
             rb.AddExplosionForce(BombPower, transform.position, 0);
             transform.position = BallRestartPos + new Vector3(Random.Range(-RestartPositionOffset, RestartPositionOffset), 0.0f, Random.Range(-5, 5));
             rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+            SEManager.Instance.Play(SEPath.EXPLOSION);
         }
         if (collision.gameObject.name == "Enemy" && CatchFlag == false)
         {
@@ -71,10 +78,11 @@ public class Ball : MonoBehaviour
             //enemy.CurretEnableTime = enemy.NavEnabledTime;
             Rigidbody rb = GetComponent<Rigidbody>();
             //”š”­‚Ì—Í‚ð‰Á‚¦‚é
+            Instantiate(explosioneffectobj, transform.position, Quaternion.identity);
             rb.AddExplosionForce(BombPower, transform.position, 0);
             transform.position = BallRestartPos + new Vector3(Random.Range(-RestartPositionOffset, RestartPositionOffset), 0.0f, Random.Range(-5, 5));
             rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
-            
+            SEManager.Instance.Play(SEPath.EXPLOSION);
         }
 
     }

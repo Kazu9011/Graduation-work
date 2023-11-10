@@ -15,6 +15,11 @@ public enum EPlayerState
 
 public class Player : MonoBehaviour
 {
+    //
+    GameObject starttimeobj;
+    StartTimer starttimer;
+    
+    //
     PlayerStateContext _context;
     int _currentHp;
 
@@ -76,14 +81,19 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        starttimeobj = GameObject.Find("StartTime");
+        starttimer = starttimeobj.GetComponent<StartTimer>();
     }
 
 
     private void Update()
     {
         //ÉvÉåÉCÉÑÅ[à⁄ìÆ
-        _dir = new Vector3(Input.GetAxis("L_Stick_H"), 0, Input.GetAxis("L_Stick_V")).normalized;
+        if (starttimer.timeflag == false)
+        {
+            _dir = new Vector3(Input.GetAxis("L_Stick_H"), 0, Input.GetAxis("L_Stick_V")).normalized;
+        }
+    
         _context.Update();
 
         animator.Update(0f);

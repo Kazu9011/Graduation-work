@@ -6,6 +6,7 @@
 public static class BGMPath{
 
 	public const string NOESIS_2 = "BGM/Battle/Noesis_2";
+	public const string RESULT   = "BGM/Result";
 
 }
 

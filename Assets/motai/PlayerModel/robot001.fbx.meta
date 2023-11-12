@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Armor
-    second: {fileID: 2100000, guid: b06251d4451534c4899769dc093688cf, type: 2}
+    second: {fileID: 2100000, guid: 22740bf07b539244b82eb48a22c5e65b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

@@ -7131,7 +7131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd24bf0901209fa4b8f49608de0e671f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartTime: 10
+  StartTime: 3
   timeflag: 0
 --- !u!114 &1861055321
 MonoBehaviour:

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using KanKikuchi.AudioManager;
 public class Restart : MonoBehaviour
 {
     private GameObject playerpoint;
@@ -54,12 +54,14 @@ public class Restart : MonoBehaviour
             collision.gameObject.transform.position = PlayerRestartPos;
             epoint.CurrentPoint++;
             playerrg.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+            SEManager.Instance.Play(SEPath.BURST);
         }
         if (collision.gameObject.name == "Enemy")
         {
             collision.gameObject.transform.position = EnemyRestartPos;
             ppoint.CurrentPoint++;
             enemyrg.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+            SEManager.Instance.Play(SEPath.BURST);
         }
         if (collision.gameObject.name == "Ball")
         {

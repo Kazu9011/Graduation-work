@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using KanKikuchi.AudioManager;
 public class TimeSystem : MonoBehaviour
 {
     private bool flag;
@@ -37,6 +38,7 @@ public class TimeSystem : MonoBehaviour
             if (currenttime < 0.00f)
             {
                 currenttime = 0.00f;
+                SEManager.Instance.Play(SEPath.END_WHISTLE);
                 Time.timeScale = 0.0f;
             }
             TimeUI.text = currenttime.ToString("00.00");

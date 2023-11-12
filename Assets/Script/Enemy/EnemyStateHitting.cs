@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using KanKikuchi.AudioManager;
 public class EnemyStateHitting : IEnemyState
 {
     Enemy _enemy;
@@ -22,6 +22,7 @@ public class EnemyStateHitting : IEnemyState
         _ball = ballobj.GetComponent<Ball>();
         _ball.CatchFlag = false;
         _enemy.SetState(EEnemyState.Move);
+        SEManager.Instance.Play(SEPath.SWING);
     }
     // Update is called once per frame
     public void Update()

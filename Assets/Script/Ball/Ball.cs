@@ -55,9 +55,11 @@ public class Ball : MonoBehaviour
                 setting.ChangeFieldCollision(false);
             }
             Rigidbody rb = GetComponent<Rigidbody>();
-            //爆発の力を加える
+           
             Instantiate(explosioneffectobj, transform.position, Quaternion.identity);
+            //爆発の力を加える
             rb.AddExplosionForce(BombPower, transform.position, 0);
+            //ボールのリスポーン
             transform.position = BallRestartPos + new Vector3(Random.Range(-RestartPositionOffset, RestartPositionOffset), 0.0f, Random.Range(-5, 5));
             rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
             SEManager.Instance.Play(SEPath.EXPLOSION);
@@ -77,9 +79,11 @@ public class Ball : MonoBehaviour
             //enemy.ChangeNavEnable(false);
             //enemy.CurretEnableTime = enemy.NavEnabledTime;
             Rigidbody rb = GetComponent<Rigidbody>();
-            //爆発の力を加える
+           
             Instantiate(explosioneffectobj, transform.position, Quaternion.identity);
+            //爆発の力を加える
             rb.AddExplosionForce(BombPower, transform.position, 0);
+            //ボールのリスポーン
             transform.position = BallRestartPos + new Vector3(Random.Range(-RestartPositionOffset, RestartPositionOffset), 0.0f, Random.Range(-5, 5));
             rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
             SEManager.Instance.Play(SEPath.EXPLOSION);

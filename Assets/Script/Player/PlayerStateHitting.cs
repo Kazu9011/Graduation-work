@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using KanKikuchi.AudioManager;
 public class PlayerStateHitting : IPlayerState
 {
     Player _player;
@@ -22,6 +22,7 @@ public class PlayerStateHitting : IPlayerState
         _ball= ballobj.GetComponent<Ball>();
         _ball.CatchFlag = false;
         _player.SetState(EPlayerState.Idle);
+        SEManager.Instance.Play(SEPath.SWING);
     }
     // Update is called once per frame
     public void Update()

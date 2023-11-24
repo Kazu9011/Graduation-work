@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAnime : MonoBehaviour
 {
     bool Ishit = false;
+    bool isBattle = false;
     Animator animator ;
     // Start is called before the first frame update
     void Start()
@@ -17,14 +18,30 @@ public class PlayerAnime : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
-            Ishit = true;
-            
+            isBattle = true;
+            animator = GetComponent<Animator>();
+            animator.SetBool("isBattle", isBattle);
+        }
+        else if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            isBattle = false;
+            animator = GetComponent<Animator>();
+            animator.SetBool("isBattle", isBattle);
         }
 
-        animator = GetComponent<Animator>();
-        animator.SetBool("Ishit", Ishit);
 
+        if (isBattle)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Ishit = true;
+               
+                animator = GetComponent<Animator>();
+                animator.SetBool("Ishit", Ishit);
+            }
+        }
+        
     }
 }

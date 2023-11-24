@@ -17,6 +17,18 @@ public class TimeSystem : MonoBehaviour
             flag = value;
         }
     }
+    private bool endflag;
+    public bool ChangeEndFlag
+    {
+        get
+        {
+            return endflag;
+        }
+        set
+        {
+            endflag = value;
+        }
+    }
     public float TimeLimit = 60.00f;
     private float currenttime;
     TextMeshProUGUI TimeUI;
@@ -25,6 +37,7 @@ public class TimeSystem : MonoBehaviour
     void Start()
     {
         flag = true;
+        ChangeEndFlag = false;
         currenttime = TimeLimit;
     }
 
@@ -40,6 +53,7 @@ public class TimeSystem : MonoBehaviour
                 currenttime = 0.00f;
                 SEManager.Instance.Play(SEPath.END_WHISTLE);
                 Time.timeScale = 0.0f;
+                ChangeEndFlag = true;
             }
             TimeUI.text = currenttime.ToString("00.00");
             //if (currenttime == 0.00f)

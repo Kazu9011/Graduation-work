@@ -22,7 +22,14 @@ public class PlayerStateAim : IPlayerState
             //ƒ{[ƒ‹‚ğŠó‘Ô
             ballobj = GameObject.Find("Ball");
             ballobj.transform.position = _player.transform.position + _player.transform.forward * _player.BallDistance;
-            _player.SetDirection(_player.Dir);
+            if (_player.Dir==new Vector3(0.0f,0.0f,0.0f))
+            {
+
+            }
+            else
+            {
+                _player.SetDirection(_player.Dir);
+            }
             return;
         }
         if (Input.GetButtonUp("A"))

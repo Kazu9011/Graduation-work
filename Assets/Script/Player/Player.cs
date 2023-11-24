@@ -92,6 +92,7 @@ public class Player : MonoBehaviour
         if (starttimer.timeflag == false)
         {
             _dir = new Vector3(Input.GetAxis("L_Stick_H"), 0, Input.GetAxis("L_Stick_V")).normalized;
+            //Debug.Log(Input.GetAxis("L_Stick_H"));
         }
     
         _context.Update();

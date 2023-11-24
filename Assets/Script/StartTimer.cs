@@ -19,7 +19,7 @@ public class StartTimer : MonoBehaviour
     void Start()
     {
         bufferflag = true;
-        startbuffer = 15.0f;
+        startbuffer = 10.0f;
         curretbuffer = 0.0f;
         currenttime = StartTime;
         timeobj = GameObject.Find("Time");

@@ -32,13 +32,22 @@ public class TimeSystem : MonoBehaviour
     public float TimeLimit = 60.00f;
     private float currenttime;
     TextMeshProUGUI TimeUI;
+    static private bool restartflag = false;
     //private TextMeshProUGUI TimeUI;
     // Start is called before the first frame update
     void Start()
     {
         flag = true;
         ChangeEndFlag = false;
-        currenttime = TimeLimit;
+        
+        if (restartflag)
+        {
+            currenttime = TimeLimit-0.02f;
+        }
+        else
+        {
+            currenttime = TimeLimit;
+        }
     }
 
     // Update is called once per frame
@@ -54,12 +63,9 @@ public class TimeSystem : MonoBehaviour
                 SEManager.Instance.Play(SEPath.END_WHISTLE);
                 Time.timeScale = 0.0f;
                 ChangeEndFlag = true;
+                restartflag = true;
             }
             TimeUI.text = currenttime.ToString("00.00");
-            //if (currenttime == 0.00f)
-            //{
-                
-            //}
         }
 
     }

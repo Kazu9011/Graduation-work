@@ -19,7 +19,7 @@ public class StartTimer : MonoBehaviour
     void Start()
     {
         bufferflag = true;
-        startbuffer = 10.0f;
+        startbuffer = 8.0f;
         curretbuffer = 0.0f;
         currenttime = StartTime;
         timeobj = GameObject.Find("Time");
@@ -48,8 +48,18 @@ public class StartTimer : MonoBehaviour
             }
             currenttime -= Time.unscaledDeltaTime; ;
             TimeUI.text = currenttime.ToString("0");
+            //if (0.0f <= currenttime && currenttime < 0.3f)
+            //{
+            //    TimeUI.text = ("Go!");
+            //}
+
+            if ("0" == TimeUI.text)
+            {
+                TimeUI.text = ("Go!");
+            }
             if (currenttime <= 0)
             {
+                
                 TimeUI.enabled = false;
                 Time.timeScale = 1.0f;
                 timeflag = false;

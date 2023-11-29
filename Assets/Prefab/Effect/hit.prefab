@@ -23915,7 +23915,7 @@ GameObject:
   - component: {fileID: 400010}
   - component: {fileID: 114000013226671396}
   m_Layer: 0
-  m_Name: RainbowExplode2
+  m_Name: hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

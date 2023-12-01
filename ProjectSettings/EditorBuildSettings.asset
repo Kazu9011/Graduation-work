@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Honzawa/HonzawaScene.unity
     guid: 0cadf6fb8fb954e4482894ad8b2e1ed8
+  - enabled: 1
+    path: Assets/motai/TitleScene.unity
+    guid: cac7371f1096fd746b264eac8ec2c2d9
   m_configObjects: {}

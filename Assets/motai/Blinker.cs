@@ -75,7 +75,7 @@ public class Blinker : MonoBehaviour
     {
         tmp.color = Color.Lerp(startColor, endColor, Mathf.PingPong(Time.time / duration, 1.0f));
 
-        if(is_fadeout == true && Input.GetKeyDown(KeyCode.Return))
+        if(is_fadeout == true && Input.GetButtonDown("A"))
         {
             StartCoroutine(Wait3SecondSAndFadeOut());
             duration = duration2;
@@ -86,6 +86,6 @@ public class Blinker : MonoBehaviour
         yield return new WaitForSeconds(timeout);
         m_fade.FadeOut(fadeout);
         is_fadeout = false;
-        /*SceneManeger.LoadScene("");*/     // シーンをロード(ここに遷移したいSceneNameを入力)
+        /*SceneManeger.LoadScene("GameScene");*/     // シーンをロード(ここに遷移したいSceneNameを入力)
     }
 }

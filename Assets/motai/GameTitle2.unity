@@ -626,6 +626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tmp: {fileID: 1653258187}
   duration: 1
+  duration2: 0.1
   startColor:
     serializedVersion: 2
     rgba: 4278251775
@@ -633,6 +634,9 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 16777215
   m_fade: {fileID: 378055933}
+  fadein: 2.5
+  fadeout: 1
+  timeout: 1
 --- !u!1 &1679299840
 GameObject:
   m_ObjectHideFlags: 0

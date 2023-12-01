@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using System;
 
 
@@ -47,7 +46,6 @@ public class FadeSceneLoder : MonoBehaviour
         }
 
         fadePanel.color = endColor;     // フェードが完了したら最終色に設定
-        /*SceneManeger.LoadScene("");*/     // シーンをロード(ここに遷移したいSceneNameを入力)
     }
 
     private void Reset()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 
 public class FadeSceneLoder : MonoBehaviour
@@ -44,7 +45,7 @@ public class FadeSceneLoder : MonoBehaviour
             fadePanel.color = Color.Lerp(startColor, endColor, t);  // パネルの色を変更してフェードアウト
             yield return null;                                      // 1フレーム待機
         }
-
+        
         fadePanel.color = endColor;     // フェードが完了したら最終色に設定
     }
 
@@ -71,6 +72,11 @@ public class FadeSceneLoder : MonoBehaviour
 
         if (is_reversing) m_image.enabled = false;
         if (on_completed != null) on_completed();
+        
+        if(is_reversing == false)
+        {
+            SceneManager.LoadScene("GameScene");     // シーンをロード(ここに遷移したいSceneNameを入力)
+        }
     }
     public void FadeIn(float duration,Action on_completed = null)
     {

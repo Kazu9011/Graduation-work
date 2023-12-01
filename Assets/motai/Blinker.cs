@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
 using UnityEngine.SceneManagement;
+using System;
+
 
 public class Blinker : MonoBehaviour
 {
@@ -86,6 +87,5 @@ public class Blinker : MonoBehaviour
         yield return new WaitForSeconds(timeout);
         m_fade.FadeOut(fadeout);
         is_fadeout = false;
-        /*SceneManeger.LoadScene("GameScene");*/     // シーンをロード(ここに遷移したいSceneNameを入力)
     }
 }

@@ -35,6 +35,8 @@ public class Result : MonoBehaviour
     public GameObject B_CircleGaugeobj;
     private Image a_circle;
     private Image b_circle;
+    public GameObject A;
+    public GameObject B;
     void Start()
     {
         timesystemobj = GameObject.Find("Time");
@@ -50,6 +52,8 @@ public class Result : MonoBehaviour
         B_CircleGaugeobj = GameObject.Find("B_CircleGauge");
         a_circle = A_CircleGaugeobj.GetComponent<Image>();
         b_circle = B_CircleGaugeobj.GetComponent<Image>();
+        A = GameObject.Find("A");
+        B = GameObject.Find("B");
         playerpointtmp.enabled = false;
         enemypointtmp.enabled = false;
         MatchResultObj.SetActive(false);
@@ -59,6 +63,8 @@ public class Result : MonoBehaviour
         Window.SetActive(false);
         Gotitle.SetActive(false);
         Rematch.SetActive(false);
+        A.SetActive(false);
+        B.SetActive(false);
     }
 
     // Update is called once per frame
@@ -74,6 +80,11 @@ public class Result : MonoBehaviour
             enemypointtmp.enabled = true;
             playerpointtmp.text = playerpoint.CurrentPoint.ToString("0");
             enemypointtmp.text = enemypoint.CurrentPoint.ToString("0");
+            PlayerPointObj.SetActive(false);
+            EnemyPointObj.SetActive(false);
+            timesystemobj.SetActive(false);
+            A.SetActive(true);
+            B.SetActive(true);
             if (playerpoint.CurrentPoint > enemypoint.CurrentPoint)
             {
                 WinObj.SetActive(true);

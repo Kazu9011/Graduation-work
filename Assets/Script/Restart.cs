@@ -4,6 +4,7 @@ using UnityEngine;
 using KanKikuchi.AudioManager;
 public class Restart : MonoBehaviour
 {
+    
     private GameObject playerpoint;
     private GameObject enemypoint;
     private PlayerPoint ppoint;
@@ -20,6 +21,8 @@ public class Restart : MonoBehaviour
     private GameObject enemyobj;
     private Rigidbody playerrg;
     private Rigidbody enemyrg;
+    private GameObject bursteffectobj;
+    private GameObject restarteffectobj;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +43,8 @@ public class Restart : MonoBehaviour
         enemyobj = GameObject.Find("Enemy");
         playerrg = playerobj.GetComponent<Rigidbody>();
         enemyrg = enemyobj.GetComponent<Rigidbody>();
+        bursteffectobj = (GameObject)Resources.Load("Burst");
+        restarteffectobj = (GameObject)Resources.Load("restart");
     }
 
     // Update is called once per frame
@@ -51,17 +56,22 @@ public class Restart : MonoBehaviour
     {
         if (collision.gameObject.name == "DogPolyart")
         {
+            Instantiate(bursteffectobj, collision.transform.position, Quaternion.identity);
             collision.gameObject.transform.position = PlayerRestartPos;
             epoint.CurrentPoint++;
             playerrg.velocity = new Vector3(0.0f, 0.0f, 0.0f);
             SEManager.Instance.Play(SEPath.BURST);
+            Instantiate(restarteffectobj, collision.transform.position, Quaternion.identity);
         }
         if (collision.gameObject.name == "Enemy")
         {
+            Instantiate(bursteffectobj, collision.transform.position, Quaternion.identity);
             collision.gameObject.transform.position = EnemyRestartPos;
             ppoint.CurrentPoint++;
             enemyrg.velocity = new Vector3(0.0f, 0.0f, 0.0f);
             SEManager.Instance.Play(SEPath.BURST);
+            Instantiate(restarteffectobj, collision.transform.position, Quaternion.identity);
+
         }
         if (collision.gameObject.name == "Ball")
         {

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Blinker : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class Blinker : MonoBehaviour
     [Range(0.1f, 10.0f)]
     float duration = 1.0f;
 
+    [Header("(Aボタンを押してからの)1ループの長さ(秒単位)")]
+    [SerializeField]
+    [Range(0.1f, 10.0f)]
+    float duration2 = 0.1f;
+
     //開始時の色。
     [Header("ループ開始時の色")]
     [SerializeField]
@@ -26,13 +32,25 @@ public class Blinker : MonoBehaviour
     [SerializeField]
     Color32 endColor = new Color32(255, 255, 255, 64);
 
+    [SerializeField]
+    private FadeSceneLoder m_fade = null;
+
+    [Header("フェードインの秒数")]
+    [SerializeField]
+    float fadein = 2.0f;
+
+    [Header("フェードアウトの秒数")]
+    [SerializeField]
+    float fadeout = 1.0f;
+
+    [Header("(Aボタンを押してから)フェードアウトするまでの秒数")]
+    [SerializeField]
+    float timeout = 1.5f;
+
     GameObject Canvas;
     FadeSceneLoder fadeSceneLoder;
 
-    [SerializeField]
-    private FadeSceneLoder m_fade = null;
     bool is_fadeout = false;
-    
 
     private void Start()
     {
@@ -43,7 +61,7 @@ public class Blinker : MonoBehaviour
         {
             is_fadeout = true;
         };
-        m_fade.FadeIn(2.0f, on_completed);
+        m_fade.FadeIn(fadein, on_completed);
     }
 
     //インスペクターから設定した場合は、GetComponentする必要がなくなる為、Awakeを削除しても良い。
@@ -60,12 +78,14 @@ public class Blinker : MonoBehaviour
         if(is_fadeout == true && Input.GetKeyDown(KeyCode.Return))
         {
             StartCoroutine(Wait3SecondSAndFadeOut());
+            duration = duration2;
         }
     }
     private IEnumerator Wait3SecondSAndFadeOut()
     {
-        yield return new WaitForSeconds(0.5f);
-        m_fade.FadeOut(1.0f);
+        yield return new WaitForSeconds(timeout);
+        m_fade.FadeOut(fadeout);
         is_fadeout = false;
+        /*SceneManeger.LoadScene("");*/     // シーンをロード(ここに遷移したいSceneNameを入力)
     }
 }

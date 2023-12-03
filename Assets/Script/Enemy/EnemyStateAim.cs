@@ -21,13 +21,14 @@ public class EnemyStateAim : IEnemyState
         
         //É{Å[ÉãÇèäéùèÛë‘
         ballobj = GameObject.Find("Ball");
-        ballobj.transform.position = _enemy.transform.position + _enemy.transform.forward * _enemy.BallDistance;
+        ballobj.transform.position = _enemy.transform.position + _enemy.transform.forward * _enemy.BallDistance + _enemy.transform.up * 1.0f;
         //
         playerobj = GameObject.Find("DogPolyart");
 
         Vector3 aim = playerobj.transform.position - _enemy.transform.position;
         Quaternion look = Quaternion.LookRotation(aim);
         _enemy.transform.localRotation = look;
+        ballobj.transform.position = _enemy.transform.position + _enemy.transform.forward * _enemy.BallDistance + _enemy.transform.up * 1.0f;
         _enemy.SetState(EEnemyState.Hitting);
         //
 

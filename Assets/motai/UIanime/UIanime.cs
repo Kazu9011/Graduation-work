@@ -58,4 +58,20 @@ public class UIanime : MonoBehaviour
             }
         }
     }
+    
+    void PlayerAnime()
+    {
+        Animator animator;
+        is_PlayerDes = true;
+        animator = GetComponent<Animator>();
+        animator.SetBool("isBattle", is_PlayerDes);
+    }
+
+    void EnnmyAnime()
+    {
+        Animator animator;
+        is_EnemyDes = true;
+        animator = GetComponent<Animator>();
+        animator.SetBool("isBattle", is_EnemyDes);
+    }
 }

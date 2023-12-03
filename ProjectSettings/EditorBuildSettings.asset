@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/motai/TitleScene.unity
     guid: cac7371f1096fd746b264eac8ec2c2d9
   - enabled: 1
-    path: Assets/motai/GameScene.unity
-    guid: 9eb43aee6464a1c45bbfc9fdc12575f5
+    path: Assets/motai/gamescene.unity
+    guid: a52c452a5934fbc479955f181aed59d3
   m_configObjects: {}

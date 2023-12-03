@@ -46,7 +46,7 @@ public class EnemyStateMove : IEnemyState
             if (_enemy.CurretCatchInterval > 0) _enemy.CurretCatchInterval -= Time.deltaTime;
             //ƒ{[ƒ‹‚ğŠó‘Ô
             
-            ballobj.transform.position = _enemy.transform.position + _enemy.transform.forward * _enemy.BallDistance ;
+            ballobj.transform.position = _enemy.transform.position + _enemy.transform.forward * _enemy.BallDistance + _enemy.transform.up * 1.0f;
             //if (Input.GetButtonDown("A"))
             //{
             //    _enemy.SetState(EEnemyState.Aim);

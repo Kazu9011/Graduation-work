@@ -23,6 +23,9 @@ public class Restart : MonoBehaviour
     private Rigidbody enemyrg;
     private GameObject bursteffectobj;
     private GameObject restarteffectobj;
+    //
+    private Animator playerpointanimator;
+    private Animator enemypointanimator;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +42,9 @@ public class Restart : MonoBehaviour
         enemypoint = GameObject.Find("EnemyPoint");
         ppoint = playerpoint.GetComponent<PlayerPoint>();
         epoint = enemypoint.GetComponent<EnemyPoint>();
-        playerobj= GameObject.Find("DogPolyart");
+        playerpointanimator= playerpoint.GetComponent<Animator>();
+        enemypointanimator = enemypoint.GetComponent<Animator>();
+        playerobj = GameObject.Find("DogPolyart");
         enemyobj = GameObject.Find("Enemy");
         playerrg = playerobj.GetComponent<Rigidbody>();
         enemyrg = enemyobj.GetComponent<Rigidbody>();
@@ -71,7 +76,6 @@ public class Restart : MonoBehaviour
             enemyrg.velocity = new Vector3(0.0f, 0.0f, 0.0f);
             SEManager.Instance.Play(SEPath.BURST);
             Instantiate(restarteffectobj, collision.transform.position, Quaternion.identity);
-
         }
         if (collision.gameObject.name == "Ball")
         {

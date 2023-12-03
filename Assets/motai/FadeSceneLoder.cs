@@ -75,7 +75,7 @@ public class FadeSceneLoder : MonoBehaviour
         
         if(is_reversing == false)
         {
-            SceneManager.LoadScene("GameScene");     // シーンをロード(ここに遷移したいSceneNameを入力)
+            SceneManager.LoadScene("gamescene");     // シーンをロード(ここに遷移したいSceneNameを入力)
         }
     }
     public void FadeIn(float duration,Action on_completed = null)

@@ -23,4 +23,11 @@ public class enemyanime : MonoBehaviour
         animator = GetComponent<Animator>();
         animator.SetBool("is_EnemyDes", is_EnemyDes);
     }
+    public void EnemyAnimefalse()
+    {
+        Animator animator;
+        is_EnemyDes = false;
+        animator = GetComponent<Animator>();
+        animator.SetBool("is_EnemyDes", is_EnemyDes);
+    }
 }

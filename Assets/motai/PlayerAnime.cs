@@ -10,7 +10,6 @@ public class PlayerAnime : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
 
     }
 
@@ -20,28 +19,52 @@ public class PlayerAnime : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            isBattle = true;
-            animator = GetComponent<Animator>();
-            animator.SetBool("isBattle", isBattle);
+            PlayerBattleTrue();
         }
-        else if(Input.GetKeyDown(KeyCode.Tab))
+      
+        if (isBattle && Input.GetMouseButtonDown(0))
         {
-            isBattle = false;
-            animator = GetComponent<Animator>();
-            animator.SetBool("isBattle", isBattle);
+            PlayerHitTrue();
         }
 
-
-        if (isBattle)
+        if (Ishit && isBattle && Input.GetKeyDown(KeyCode.Return))
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Ishit = true;
-               
-                animator = GetComponent<Animator>();
-                animator.SetBool("Ishit", Ishit);
-            }
+            PlayerBattleFalse();
+            PlayerHitFalse();
         }
-        
+
     }
+
+    public void PlayerBattleTrue()
+    {
+        Animator animator;
+        isBattle = true;
+        animator = GetComponent<Animator>();
+        animator.SetBool("isBattle", isBattle);
+    }
+
+    public void PlayerBattleFalse()
+    {
+        Animator animator;
+        isBattle = false;
+        animator = GetComponent<Animator>();
+        animator.SetBool("isBattle", isBattle);
+    }
+
+    public void PlayerHitTrue()
+    {
+        Animator animator;
+        Ishit = true;
+        animator = GetComponent<Animator>();
+        animator.SetBool("Ishit", Ishit);
+    }
+
+    public void PlayerHitFalse()
+    {
+        Animator animator;
+        Ishit = false;
+        animator = GetComponent<Animator>();
+        animator.SetBool("Ishit", Ishit);
+    }
+
 }

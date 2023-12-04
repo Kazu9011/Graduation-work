@@ -20,55 +20,57 @@ public class UIanime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            is_PlayerDes = true;
-            animator = GetComponent<Animator>();
-            animator.SetBool("isBattle", is_PlayerDes);
-            playertime += Time.deltaTime;
-        }
+        //if (Input.GetKeyDown(KeyCode.Return))
+        //{
+        //    is_PlayerDes = true;
+        //    animator = GetComponent<Animator>();
+        //    animator.SetBool("isBattle", is_PlayerDes);
+        //    playertime += Time.deltaTime;
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            is_EnemyDes = true;
-            animator = GetComponent<Animator>();
-            animator.SetBool("isBattle", is_EnemyDes);
-            enemytime += Time.deltaTime;
-        }
+        //if (Input.GetKeyDown(KeyCode.Return))
+        //{
+        //    is_EnemyDes = true;
+        //    animator = GetComponent<Animator>();
+        //    animator.SetBool("isBattle", is_EnemyDes);
+        //    enemytime += Time.deltaTime;
+        //}
 
-        if(is_PlayerDes)
-        {
-            if(playertime >= 1.0f)
-            {
-                is_PlayerDes = false;
-                animator = GetComponent<Animator>();
-                animator.SetBool("isBattle", is_PlayerDes);
-                playertime = 0.0f;
-            }
-        }
+        //if(is_PlayerDes)
+        //{
+        //    if(playertime >= 1.0f)
+        //    {
+        //        is_PlayerDes = false;
+        //        animator = GetComponent<Animator>();
+        //        animator.SetBool("isBattle", is_PlayerDes);
+        //        playertime = 0.0f;
+        //    }
+        //}
 
-        if(is_EnemyDes)
-        {
-            if(enemytime >= 1.0f)
-            {
-                is_EnemyDes = false;
-                animator = GetComponent<Animator>();
-                animator.SetBool("isBattle", is_EnemyDes);
-                enemytime = 0.0f;
-            }
-        }
+        //if(is_EnemyDes)
+        //{
+        //    if(enemytime >= 1.0f)
+        //    {
+        //        is_EnemyDes = false;
+        //        animator = GetComponent<Animator>();
+        //        animator.SetBool("isBattle", is_EnemyDes);
+        //        enemytime = 0.0f;
+        //    }
+        //}
     }
     
-    void PlayerAnime()
+    public void PlayerAnime()
     {
+        Debug.Log("敵得点アニメ");
         Animator animator;
         is_PlayerDes = true;
         animator = GetComponent<Animator>();
         animator.SetBool("isBattle", is_PlayerDes);
     }
 
-    void EnnmyAnime()
+    public void EnnmyAnime()
     {
+        Debug.Log("プレイヤー得点アニメ");
         Animator animator;
         is_EnemyDes = true;
         animator = GetComponent<Animator>();

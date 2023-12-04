@@ -1098,6 +1098,7 @@ GameObject:
   - component: {fileID: 231638438}
   - component: {fileID: 231638440}
   - component: {fileID: 231638441}
+  - component: {fileID: 231638442}
   m_Layer: 5
   m_Name: PlayerPoint
   m_TagString: Untagged
@@ -1247,13 +1248,25 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 5a5dd5dabd3e16e4cb776e3c9a139b69, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &231638442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231638436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 015d9284bf981414b911167fad324c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &273978878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,6 +1542,7 @@ GameObject:
   - component: {fileID: 313505890}
   - component: {fileID: 313505892}
   - component: {fileID: 313505893}
+  - component: {fileID: 313505894}
   m_Layer: 5
   m_Name: EnemyPoint
   m_TagString: Untagged
@@ -1678,13 +1692,25 @@ Animator:
   m_Controller: {fileID: 9100000, guid: d388091a16de59c4cb2e9a0305540775, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &313505894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 313505888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 015d9284bf981414b911167fad324c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &315840104
 PrefabInstance:
   m_ObjectHideFlags: 0

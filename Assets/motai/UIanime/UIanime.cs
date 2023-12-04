@@ -10,11 +10,14 @@ public class UIanime : MonoBehaviour
     float playertime;
     float enemytime;
 
+    playeranime playeranime;
+    enemyanime enemyanime;
     Animator animator;
     // Start is called before the first frame update
     void Start()
     {
-        
+        playeranime = GetComponent<playeranime>();
+        enemyanime = GetComponent<enemyanime>();
     }
 
     // Update is called once per frame
@@ -22,56 +25,16 @@ public class UIanime : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            is_PlayerDes = true;
-            animator = GetComponent<Animator>();
-            animator.SetBool("is_PlayerDes", is_PlayerDes);
+            playeranime.PlayerAnime();
             playertime += Time.deltaTime;
         }
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            is_EnemyDes = true;
-            animator = GetComponent<Animator>();
-            animator.SetBool("is_EnemyDes", is_EnemyDes);
+            enemyanime.EnemyAnime();
             enemytime += Time.deltaTime;
         }
 
-        if(is_PlayerDes)
-        {
-            if(playertime >= 1.0f)
-            {
-                is_PlayerDes = false;
-                animator = GetComponent<Animator>();
-                animator.SetBool("is_PlayerDes", is_PlayerDes);
-                playertime = 0.0f;
-            }
-        }
-
-        if(is_EnemyDes)
-        {
-            if(enemytime >= 1.0f)
-            {
-                is_EnemyDes = false;
-                animator = GetComponent<Animator>();
-                animator.SetBool("is_EnemyDes", is_EnemyDes);
-                enemytime = 0.0f;
-            }
-        }
     }
     
-    void PlayerAnime()
-    {
-        Animator animator;
-        is_PlayerDes = true;
-        animator = GetComponent<Animator>();
-        animator.SetBool("is_PlayerDes", is_PlayerDes);
-    }
-
-    void EnnmyAnime()
-    {
-        Animator animator;
-        is_EnemyDes = true;
-        animator = GetComponent<Animator>();
-        animator.SetBool("is_EnemyDes", is_EnemyDes);
-    }
 }

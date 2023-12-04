@@ -27,8 +27,8 @@ public class Restart : MonoBehaviour
     private Animator playerpointanimator;
     private Animator enemypointanimator;
     // Start is called before the first frame update
-    private UIanime panime;
-    private UIanime eanime;
+    //private playeranime panime;
+    //private enemyanime eanime;
     void Start()
     {
         PlayerRestartPos = PlayerTargetObject.transform.position;
@@ -52,8 +52,8 @@ public class Restart : MonoBehaviour
         enemyrg = enemyobj.GetComponent<Rigidbody>();
         bursteffectobj = (GameObject)Resources.Load("Burst");
         restarteffectobj = (GameObject)Resources.Load("restart");
-        panime = playerpoint.GetComponent<UIanime>();
-        eanime = enemypoint.GetComponent<UIanime>();
+        //panime = playerpoint.GetComponent<playeranime>();
+        //eanime = enemypoint.GetComponent<enemyanime>();
     }
 
     // Update is called once per frame
@@ -71,7 +71,7 @@ public class Restart : MonoBehaviour
             playerrg.velocity = new Vector3(0.0f, 0.0f, 0.0f);
             SEManager.Instance.Play(SEPath.BURST);
             Instantiate(restarteffectobj, collision.transform.position, Quaternion.identity);
-            eanime.EnnmyAnime();
+            //eanime.EnemyAnime();
         }
         if (collision.gameObject.name == "Enemy")
         {
@@ -81,7 +81,7 @@ public class Restart : MonoBehaviour
             enemyrg.velocity = new Vector3(0.0f, 0.0f, 0.0f);
             SEManager.Instance.Play(SEPath.BURST);
             Instantiate(restarteffectobj, collision.transform.position, Quaternion.identity);
-            panime.PlayerAnime();
+            //panime.PlayerAnime();
         }
         if (collision.gameObject.name == "Ball")
         {

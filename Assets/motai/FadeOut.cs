@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Fadeinout : MonoBehaviour
+public class FadeOut : MonoBehaviour
 {
     [SerializeField]
     private FadeSceneLoder m_fade = null;
-
-    [Header("フェードインの秒数")]
-    [SerializeField]
-    float fadein = 2.0f;
 
     [Header("フェードアウトの秒数")]
     [SerializeField]
@@ -32,12 +28,7 @@ public class Fadeinout : MonoBehaviour
         
     }
 
-    public void FadeIn()
-    {
-        m_fade.FadeIn(fadein);
-    }
-
-    public void FadeOut()
+    public void Fadeout()
     {
         m_fade.FadeOut(fadeout);
     }

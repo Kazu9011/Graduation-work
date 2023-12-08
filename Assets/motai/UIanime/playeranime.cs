@@ -9,19 +9,26 @@ public class playeranime : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void PlayerAnime()
     {
         Animator animator;
         is_PlayerDes = true;
+        animator = GetComponent<Animator>();
+        animator.SetBool("is_PlayerDes", is_PlayerDes);
+    }
+    public void PlayerAnimefalse()
+    {
+        Animator animator;
+        is_PlayerDes = false;
         animator = GetComponent<Animator>();
         animator.SetBool("is_PlayerDes", is_PlayerDes);
     }

@@ -4857,6 +4857,7 @@ MonoBehaviour:
   PlayerSpeed: 30
   BallDistance: 1.5
   HitPower: 20
+  rotationSpeed: 120
   CatchIntervalTime: 10
 --- !u!1 &1023787165
 GameObject:
@@ -6861,6 +6862,7 @@ MonoBehaviour:
   PlayerSpeed: 30
   BallDistance: 1
   HitPower: 20
+  rotationSpeed: 5
   CatchIntervalTime: 10
 --- !u!136 &1451489720
 CapsuleCollider:

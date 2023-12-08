@@ -33,7 +33,8 @@ public class Player : MonoBehaviour
     public float PlayerSpeed = 50.0f;
     public float BallDistance = 2.0f;
     public float HitPower = 10.0f;
-    //
+    public float rotationSpeed = 5.0f; // ‰ñ“]‘¬“x‚ð’²®‚·‚é‚½‚ß‚Ì•Ï”
+    private Quaternion targetRotation;
     private bool catchFlag;
     public bool CatchFlag
     {
@@ -93,8 +94,11 @@ public class Player : MonoBehaviour
         {
             _dir = new Vector3(Input.GetAxis("L_Stick_H"), 0, Input.GetAxis("L_Stick_V")).normalized;
             //Debug.Log(Input.GetAxis("L_Stick_H"));
+            //Debug.Log(Input.GetAxis("L_Stick_V"));
+            
         }
-    
+        
+
         _context.Update();
 
         animator.Update(0f);
@@ -126,7 +130,12 @@ public class Player : MonoBehaviour
     }
 
     public void AddVelocity(Vector3 vel) => rb.AddForce(vel-rb.velocity, ForceMode.Force);
-    public void SetDirection(Vector3 dir) => rb.rotation = Quaternion.LookRotation(dir);
+    public void SetDirection(Vector3 dir)
+    {
+        targetRotation = Quaternion.LookRotation(dir);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    }
+    //=> rb.rotation = Quaternion.LookRotation(dir);
     public void SetState(EPlayerState state) => _context.ChangeState(state);
     public void SetAnimation(string animName, bool flg) => animator.SetBool(animName, flg);
    

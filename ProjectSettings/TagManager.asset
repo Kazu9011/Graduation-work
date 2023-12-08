@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerLimit
+  - FixedBomb
   layers:
   - Default
   - TransparentFX

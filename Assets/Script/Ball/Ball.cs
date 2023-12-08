@@ -162,5 +162,37 @@ public class Ball : MonoBehaviour
             SEManager.Instance.Play(SEPath.EXPLOSION);
             collisionflag = true;
         }
+        //固定爆弾判定
+        //if (collision.gameObject.tag == "FixedBomb")
+        //{
+        //    //フィールド設定変更
+        //    var Walls = GameObject.FindGameObjectsWithTag("PlayerLimit");
+        //    foreach (var wall in Walls)
+        //    {
+        //        setting = wall.GetComponent<FieldSetting>();
+        //        setting.ChangeFieldCollision(false);
+        //    }
+        //    //Enemy = GameObject.Find("Enemy");
+        //    //Enemy enemy = Enemy.GetComponent<Enemy>();
+        //    Rigidbody rb = GetComponent<Rigidbody>();
+        //    Instantiate(explosioneffectobj, transform.position, Quaternion.identity);
+        //    //爆発の力を加える
+        //    // 範囲内のRigidbodyにAddExplosionForce
+        //    Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1.0f);
+        //    for (int i = 0; i < hitColliders.Length; i++)
+        //    {
+        //        var rbs = hitColliders[i].GetComponent<Rigidbody>();
+        //        if (rbs)
+        //        {
+        //            rbs.AddExplosionForce(BombPower, transform.position, 2.0f, 0, ForceMode.Impulse);
+        //        }
+        //    }
+        //    //rb.AddExplosionForce(BombPower, transform.position, 2.0f, 0, ForceMode.Impulse);
+        //    //ボールのリスポーン
+        //    rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+        //    transform.position = BallRestartPos + new Vector3(Random.Range(-RestartPositionOffset, RestartPositionOffset), 0.0f, Random.Range(-5, 5));
+        //    SEManager.Instance.Play(SEPath.EXPLOSION);
+        //    collisionflag = true;
+        //}
     }
 }

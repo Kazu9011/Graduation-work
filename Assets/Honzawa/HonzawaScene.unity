@@ -4857,7 +4857,7 @@ MonoBehaviour:
   PlayerSpeed: 30
   BallDistance: 1.5
   HitPower: 20
-  rotationSpeed: 120
+  rotationSpeed: 200
   CatchIntervalTime: 10
 --- !u!1 &1023787165
 GameObject:
@@ -9128,6 +9128,8 @@ MonoBehaviour:
   EnemySpeed: 50
   BallDistance: 1
   HitPower: 10
+  rotationSpeed: 5
+  HitDistance: 1.5
   CatchIntervalTime: 10
   CurretEnableTime: 0
   NavEnabledTime: 20
@@ -14025,7 +14027,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemySpeed: 50
   BallDistance: 2
-  HitPower: 10
+  HitPower: 20
+  rotationSpeed: 200
+  HitDistance: 8
   CatchIntervalTime: 10
   CurretEnableTime: 0
   NavEnabledTime: 20

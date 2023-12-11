@@ -15,7 +15,7 @@ public class EnemyStateCatch : IEnemyState
         _enemy.CurretCatchInterval = _enemy.CatchIntervalTime;
         Debug.Log("“G‚ªƒ{[ƒ‹‚ğ‚Â‚©‚ñ‚¾");
         _enemy.CatchFlag = true;
-        _enemy.SetState(EEnemyState.Aim);
+        _enemy.SetState(EEnemyState.Move);
         //_enemy.SetState(EEnemyState.Hitting);
     }
     void IEnemyState.Update()

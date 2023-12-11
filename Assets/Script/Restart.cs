@@ -23,6 +23,7 @@ public class Restart : MonoBehaviour
     private Rigidbody enemyrg;
     private GameObject bursteffectobj;
     private GameObject restarteffectobj;
+    private GameObject ballrestarteffectobj;
     //
     private Animator playerpointanimator;
     private Animator enemypointanimator;
@@ -52,6 +53,7 @@ public class Restart : MonoBehaviour
         enemyrg = enemyobj.GetComponent<Rigidbody>();
         bursteffectobj = (GameObject)Resources.Load("Burst");
         restarteffectobj = (GameObject)Resources.Load("restart");
+        ballrestarteffectobj = (GameObject)Resources.Load("restart2");
         //panime = playerpoint.GetComponent<playeranime>();
         //eanime = enemypoint.GetComponent<enemyanime>();
     }
@@ -86,6 +88,7 @@ public class Restart : MonoBehaviour
         if (collision.gameObject.name == "Ball")
         {
             collision.gameObject.transform.position = BallRestartPos;
+            Instantiate(ballrestarteffectobj, collision.transform.position, Quaternion.identity);
         }
     }
 }

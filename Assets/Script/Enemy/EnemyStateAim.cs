@@ -21,7 +21,7 @@ public class EnemyStateAim : IEnemyState
         
         //ƒ{[ƒ‹‚ğŠó‘Ô
         ballobj = GameObject.Find("Ball");
-        ballobj.transform.position = _enemy.transform.position + _enemy.transform.forward * _enemy.BallDistance + _enemy.transform.up * 1.0f;
+        //ballobj.transform.position = _enemy.transform.position + _enemy.transform.forward * _enemy.BallDistance + _enemy.transform.up * 1.0f;
         //
         playerobj = GameObject.Find("DogPolyart");
 

@@ -7,13 +7,15 @@ public class EnemyStateMove : IEnemyState
     Enemy _enemy;
     GameObject ballobj;
     GameObject enemyobj;
-    
+    GameObject playerobj;
+
     public EEnemyState State => EEnemyState.Move;
     public EnemyStateMove( Enemy plaeyr) => _enemy = plaeyr;
     public void Entry()
     {
         //_enemy.SetAnimation("Move", true);
         Debug.Log("敵移動");
+        playerobj = GameObject.Find("DogPolyart");
     }
     public void Update()
     {
@@ -27,7 +29,17 @@ public class EnemyStateMove : IEnemyState
         if (agent.enabled==true)
         {
             ballobj = GameObject.Find("Ball");
-            agent.SetDestination(ballobj.transform.position);
+            if (_enemy.CatchFlag)
+            {
+                //プレイヤーを追う
+                agent.SetDestination(playerobj.transform.position);
+            }
+            else
+            {
+                //ボールを追う
+                agent.SetDestination(ballobj.transform.position);
+            }
+            
         }
         
 
@@ -45,12 +57,13 @@ public class EnemyStateMove : IEnemyState
             //時間減少
             if (_enemy.CurretCatchInterval > 0) _enemy.CurretCatchInterval -= Time.deltaTime;
             //ボールを所持状態
-            
-            ballobj.transform.position = _enemy.transform.position + _enemy.transform.forward * _enemy.BallDistance + _enemy.transform.up * 1.0f;
-            //if (Input.GetButtonDown("A"))
-            //{
-            //    _enemy.SetState(EEnemyState.Aim);
-            //}
+            ballobj.transform.position = _enemy.transform.position + _enemy.transform.forward * _enemy.BallDistance + _enemy.transform.up * 0.2f;
+            float distance = Vector3.Distance(playerobj.transform.position, _enemy.transform.position);
+            Debug.Log(distance);
+            if (_enemy.HitDistance> distance)
+            {
+                _enemy.SetState(EEnemyState.Aim);
+            }
         }
         
     }

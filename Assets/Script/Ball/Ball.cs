@@ -7,6 +7,7 @@ public class Ball : MonoBehaviour
 {
     //
     GameObject explosioneffectobj;
+    GameObject ballrestarteffectobj;
     ParticleSystem explosion;
     //Resources.UnloadAsset(explosioneffectobj);
     GameObject Player;
@@ -39,6 +40,7 @@ public class Ball : MonoBehaviour
         BallRestartPos = BallTargetObject.transform.position;
         BallRestartPos = BallTargetObject.transform.position;
         explosioneffectobj = (GameObject)Resources.Load("EnergyExplosion");
+        ballrestarteffectobj = (GameObject)Resources.Load("restart2");
         collisionflag = false;
     }
 
@@ -123,6 +125,7 @@ public class Ball : MonoBehaviour
             //ボールのリスポーン
             rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
             transform.position = BallRestartPos + new Vector3(Random.Range(-RestartPositionOffset, RestartPositionOffset), 0.0f, Random.Range(-5, 5));
+            Instantiate(ballrestarteffectobj, transform.position, Quaternion.identity);
             SEManager.Instance.Play(SEPath.EXPLOSION);
             collisionflag = true;
         }
@@ -158,7 +161,7 @@ public class Ball : MonoBehaviour
             //ボールのリスポーン
             rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
             transform.position = BallRestartPos + new Vector3(Random.Range(-RestartPositionOffset, RestartPositionOffset), 0.0f, Random.Range(-5, 5));
-
+            Instantiate(ballrestarteffectobj, transform.position, Quaternion.identity);
             SEManager.Instance.Play(SEPath.EXPLOSION);
             collisionflag = true;
         }

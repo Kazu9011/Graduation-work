@@ -24,7 +24,7 @@ public class PlayerStateIdel : IPlayerState
             if (_player.CurretCatchInterval > 0) _player.CurretCatchInterval -= Time.deltaTime;
             //ƒ{[ƒ‹‚ğŠó‘Ô
             ballobj = GameObject.Find("Ball");
-            ballobj.transform.position = _player.transform.position + _player.transform.forward * _player.BallDistance ;
+            ballobj.transform.position = _player.transform.position + _player.transform.forward * _player.BallDistance + _player.transform.up * 1.0f;
             if (Input.GetButtonDown("A"))
             {
                 _player.SetState(EPlayerState.Aim);

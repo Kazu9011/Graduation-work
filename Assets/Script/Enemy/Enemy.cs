@@ -31,6 +31,9 @@ public class Enemy : MonoBehaviour
     public float EnemySpeed = 50.0f;
     public float BallDistance = 2.0f;
     public float HitPower = 10.0f;
+    public float rotationSpeed = 5.0f; // ‰ñ“]‘¬“x‚ð’²®‚·‚é‚½‚ß‚Ì•Ï”
+    private Quaternion targetRotation;
+    public float HitDistance = 1.5f;
     //
     private bool catchFlag;
     public bool CatchFlag
@@ -134,7 +137,12 @@ public class Enemy : MonoBehaviour
     }
 
     public void AddVelocity(Vector3 vel) => rb.AddForce(vel, ForceMode.Force);
-    public void SetDirection(Vector3 dir) => transform.rotation = Quaternion.LookRotation(dir);
+    public void SetDirection(Vector3 dir)
+    {
+        targetRotation = Quaternion.LookRotation(dir);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    }
+    //=> transform.rotation = Quaternion.LookRotation(dir);
     public void SetState(EEnemyState state) => _context.ChangeState(state);
     public void SetAnimation(string animName, bool flg) => animator.SetBool(animName, flg);
 

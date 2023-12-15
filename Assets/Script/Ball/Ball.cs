@@ -32,10 +32,11 @@ public class Ball : MonoBehaviour
     }
     private float collisiontime = 0.3f;
     private bool collisionflag;
+
+    private List<GameObject> thunderlist = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
-
         CatchFlag = false;
         BallRestartPos = BallTargetObject.transform.position;
         BallRestartPos = BallTargetObject.transform.position;
@@ -43,7 +44,6 @@ public class Ball : MonoBehaviour
         ballrestarteffectobj = (GameObject)Resources.Load("restart2");
         collisionflag = false;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -58,32 +58,6 @@ public class Ball : MonoBehaviour
                 collisiontime = 0.3f;
             }
         }
-        //    ballcollision = Physics.OverlapSphere(transform.position, 2.2f,6);
-        //    Debug.Log(ballcollision.Length);
-        //    foreach (var collision in ballcollision)
-        //    {
-        //        Debug.Log("プレイヤーに当たった");
-        //        if (collision.gameObject)
-        //        {
-        //            //フィールド設定変更
-        //            var Walls = GameObject.FindGameObjectsWithTag("PlayerLimit");
-        //            foreach (var wall in Walls)
-        //            {
-        //                setting = wall.GetComponent<FieldSetting>();
-        //                setting.ChangeFieldCollision(false);
-        //            }
-        //            Rigidbody rb = GetComponent<Rigidbody>();
-        //            Instantiate(explosioneffectobj, transform.position, Quaternion.identity);
-        //            //爆発の力を加える
-        //            rb.AddExplosionForce(BombPower, transform.position, 2.0f, 0, ForceMode.Impulse);
-        //            //ボールのリスポーン
-        //            rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
-        //            transform.position = BallRestartPos + new Vector3(Random.Range(-RestartPositionOffset, RestartPositionOffset), 0.0f, Random.Range(-5, 5));
-        //            SEManager.Instance.Play(SEPath.EXPLOSION);
-        //            collisionflag = true;
-        //            break;
-        //        }
-        //    }
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -59,7 +59,7 @@ public class EnemyStateMove : IEnemyState
             //ƒ{[ƒ‹‚ðŠŽó‘Ô
             ballobj.transform.position = _enemy.transform.position + _enemy.transform.forward * _enemy.BallDistance + _enemy.transform.up * 0.2f;
             float distance = Vector3.Distance(playerobj.transform.position, _enemy.transform.position);
-            Debug.Log(distance);
+            //Debug.Log(distance);
             if (_enemy.HitDistance> distance)
             {
                 _enemy.SetState(EEnemyState.Aim);

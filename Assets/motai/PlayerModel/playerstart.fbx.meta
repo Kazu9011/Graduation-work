@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: 26e7d771df1412142ae29dfc67d7080c
+guid: 0fe2807e55e879545a77fcb5ee1e6053
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Armor
-    second: {fileID: 2100000, guid: 22740bf07b539244b82eb48a22c5e65b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: eye
-    second: {fileID: 2100000, guid: 7a1789f801781874ea7de542230406eb, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

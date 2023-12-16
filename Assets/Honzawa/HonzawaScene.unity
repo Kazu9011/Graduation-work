@@ -4858,6 +4858,7 @@ MonoBehaviour:
   BallDistance: 1.5
   HitPower: 20
   rotationSpeed: 200
+  StayTime: 1
   CatchIntervalTime: 10
 --- !u!1 &1023787165
 GameObject:
@@ -6863,6 +6864,7 @@ MonoBehaviour:
   BallDistance: 1
   HitPower: 20
   rotationSpeed: 5
+  StayTime: 0.8
   CatchIntervalTime: 10
 --- !u!136 &1451489720
 CapsuleCollider:
@@ -9130,6 +9132,7 @@ MonoBehaviour:
   HitPower: 10
   rotationSpeed: 5
   HitDistance: 1.5
+  StayTime: 0.8
   CatchIntervalTime: 10
   CurretEnableTime: 0
   NavEnabledTime: 20
@@ -14030,6 +14033,7 @@ MonoBehaviour:
   HitPower: 20
   rotationSpeed: 200
   HitDistance: 8
+  StayTime: 1
   CatchIntervalTime: 10
   CurretEnableTime: 0
   NavEnabledTime: 20
@@ -14302,7 +14306,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e06ba9469eab2774f8c96527e1f9982e, type: 2}
+  - {fileID: 2100000, guid: 4c87dd8fd2c4c674f8970b40f063c29f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     public float HitPower = 10.0f;
     public float rotationSpeed = 5.0f; // 回転速度を調整するための変数
     private Quaternion targetRotation;
+    public float StayTime = 0.8f;
     private bool catchFlag;
     public bool CatchFlag
     {
@@ -58,6 +59,18 @@ public class Player : MonoBehaviour
         set
         {
             curretcatchinterval = value;
+        }
+    }
+    private bool stay;
+    public bool ChangeStay
+    {
+        get
+        {
+            return stay;
+        }
+        set
+        {
+            stay = value;
         }
     }
     private void Awake()
@@ -89,6 +102,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+
         //プレイヤー移動
         if (starttimer.timeflag == false)
         {

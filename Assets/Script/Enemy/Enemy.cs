@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
     public float rotationSpeed = 5.0f; // ‰ñ“]‘¬“x‚ğ’²®‚·‚é‚½‚ß‚Ì•Ï”
     private Quaternion targetRotation;
     public float HitDistance = 1.5f;
+    public float StayTime = 0.8f;
     //
     private bool catchFlag;
     public bool CatchFlag
@@ -74,6 +75,18 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("ƒiƒr‚ğÁ‚µ‚½");
             nav.enabled = false;
+        }
+    }
+    private bool stay;
+    public bool ChangeStay
+    {
+        get
+        {
+            return stay;
+        }
+        set
+        {
+            stay = value;
         }
     }
     private void Awake()

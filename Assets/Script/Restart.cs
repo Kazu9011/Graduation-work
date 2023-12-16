@@ -19,6 +19,8 @@ public class Restart : MonoBehaviour
     //
     private GameObject playerobj;
     private GameObject enemyobj;
+    private Player playerscript;
+    private Enemy enemyscript;
     private Rigidbody playerrg;
     private Rigidbody enemyrg;
     private GameObject bursteffectobj;
@@ -49,6 +51,8 @@ public class Restart : MonoBehaviour
         enemypointanimator = enemypoint.GetComponent<Animator>();
         playerobj = GameObject.Find("DogPolyart");
         enemyobj = GameObject.Find("Enemy");
+        playerscript = playerobj.GetComponent<Player>();
+        enemyscript = enemyobj.GetComponent<Enemy>();
         playerrg = playerobj.GetComponent<Rigidbody>();
         enemyrg = enemyobj.GetComponent<Rigidbody>();
         bursteffectobj = (GameObject)Resources.Load("Burst");
@@ -73,6 +77,7 @@ public class Restart : MonoBehaviour
             playerrg.velocity = new Vector3(0.0f, 0.0f, 0.0f);
             SEManager.Instance.Play(SEPath.BURST);
             Instantiate(restarteffectobj, collision.transform.position, Quaternion.identity);
+            playerscript.ChangeStay = true;
             //eanime.EnemyAnime();
         }
         if (collision.gameObject.name == "Enemy")
@@ -83,6 +88,7 @@ public class Restart : MonoBehaviour
             enemyrg.velocity = new Vector3(0.0f, 0.0f, 0.0f);
             SEManager.Instance.Play(SEPath.BURST);
             Instantiate(restarteffectobj, collision.transform.position, Quaternion.identity);
+            enemyscript.ChangeStay = true;
             //panime.PlayerAnime();
         }
         if (collision.gameObject.name == "Ball")

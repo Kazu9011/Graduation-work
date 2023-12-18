@@ -37,6 +37,9 @@ public class Result : MonoBehaviour
     private Image b_circle;
     public GameObject A;
     public GameObject B;
+    //アニメーション
+    private GameObject resultanim;
+    private ResultAnime resultanimscript;
     void Start()
     {
         timesystemobj = GameObject.Find("Time");
@@ -65,6 +68,10 @@ public class Result : MonoBehaviour
         Rematch.SetActive(false);
         A.SetActive(false);
         B.SetActive(false);
+        //
+        resultanim = GameObject.Find("Result_");
+        resultanimscript = resultanim.GetComponent<ResultAnime>();
+
     }
 
     // Update is called once per frame
@@ -72,6 +79,7 @@ public class Result : MonoBehaviour
     {
         if (timesystem.ChangeEndFlag)
         {
+            resultanimscript.ResultTRUE();
             Window.SetActive(true);
             MatchResultObj.SetActive(true);
             Gotitle.SetActive(true);

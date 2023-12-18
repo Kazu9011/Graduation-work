@@ -30,8 +30,6 @@ public class Restart : MonoBehaviour
     private Animator playerpointanimator;
     private Animator enemypointanimator;
     // Start is called before the first frame update
-    //private playeranime panime;
-    //private enemyanime eanime;
     void Start()
     {
         PlayerRestartPos = PlayerTargetObject.transform.position;
@@ -78,7 +76,6 @@ public class Restart : MonoBehaviour
             SEManager.Instance.Play(SEPath.BURST);
             Instantiate(restarteffectobj, collision.transform.position, Quaternion.identity);
             playerscript.ChangeStay = true;
-            //eanime.EnemyAnime();
         }
         if (collision.gameObject.name == "Enemy")
         {
@@ -89,7 +86,6 @@ public class Restart : MonoBehaviour
             SEManager.Instance.Play(SEPath.BURST);
             Instantiate(restarteffectobj, collision.transform.position, Quaternion.identity);
             enemyscript.ChangeStay = true;
-            //panime.PlayerAnime();
         }
         if (collision.gameObject.name == "Ball")
         {

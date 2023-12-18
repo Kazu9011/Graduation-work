@@ -6,7 +6,7 @@ using KanKikuchi.AudioManager;
 public class StartTimer : MonoBehaviour
 {
     private bool bufferflag;
-    private float startbuffer;
+    public float StartTimeBuffer;
     private float curretbuffer;
     //
     public float StartTime;
@@ -19,7 +19,6 @@ public class StartTimer : MonoBehaviour
     void Start()
     {
         bufferflag = true;
-        startbuffer = 8.0f;
         curretbuffer = 0.0f;
         currenttime = StartTime;
         timeobj = GameObject.Find("Time");
@@ -38,7 +37,7 @@ public class StartTimer : MonoBehaviour
         {
             if (bufferflag)
             {
-                 if (curretbuffer < startbuffer)
+                 if (curretbuffer < StartTimeBuffer)
                  {
                      curretbuffer += Time.unscaledDeltaTime;
                      return;

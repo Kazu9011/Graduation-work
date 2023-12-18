@@ -28,7 +28,6 @@ public class Enemy : MonoBehaviour
     public Vector3 Dir => _dir;
     //プレイヤーステータス
     //プレイヤーの速度
-    public float EnemySpeed = 50.0f;
     public float BallDistance = 2.0f;
     public float HitPower = 10.0f;
     public float rotationSpeed = 5.0f; // 回転速度を調整するための変数

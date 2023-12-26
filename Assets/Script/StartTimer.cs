@@ -15,6 +15,9 @@ public class StartTimer : MonoBehaviour
     TextMeshProUGUI TimeUI;
     GameObject timeobj;
     TimeSystem timesystem;
+    //カメラ
+    GameObject vcamera;
+    CameraSystem camerascript;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,9 @@ public class StartTimer : MonoBehaviour
         
         BGMManager.Instance.Play(BGMPath.NOESIS_2);
         TimeUI = GetComponent<TextMeshProUGUI>();
+        //カメラ
+        vcamera = GameObject.Find("CM vcam1");
+        camerascript = vcamera.GetComponent<CameraSystem>();
     }
 
     // Update is called once per frame
@@ -56,12 +62,13 @@ public class StartTimer : MonoBehaviour
             {
                 TimeUI.text = ("Go!");
             }
-            if (currenttime <= 0)
+            if (currenttime <= 0)   //ゲーム開始
             {
                 
                 TimeUI.enabled = false;
                 Time.timeScale = 1.0f;
                 timeflag = false;
+                camerascript.ChangePlayerCamera();
             }
             
         }

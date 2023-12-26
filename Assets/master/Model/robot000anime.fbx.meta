@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6c603d6399356f94f80abeb1bcc28aea
+guid: e60f81a99cba57c42969b26d86c044ed
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -188,6 +188,36 @@ ModelImporter:
       internalID: -8954449984841956034
       firstFrame: 80
       lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: "\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2|\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2Action
+        (6)"
+      takeName: "\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2|\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2Action"
+      internalID: 4446506597262234777
+      firstFrame: 80
+      lastFrame: 80.1
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

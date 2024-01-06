@@ -52,12 +52,15 @@ public class Blinker : MonoBehaviour
     GameObject Canvas;
     FadeSceneLoder fadeSceneLoder;
 
+    new AudioSource audio;
+
     bool is_fadeout = false;
 
     private void Start()
     {
         Canvas = GameObject.Find("Canvas");
         fadeSceneLoder = Canvas.GetComponent<FadeSceneLoder>();
+        audio = GetComponent<AudioSource>();
 
         Action on_completed = () =>
         {
@@ -81,6 +84,7 @@ public class Blinker : MonoBehaviour
         {
             StartCoroutine(Wait3SecondSAndFadeOut());
             duration = duration2;
+            audio.Play();
         }
     }
     private IEnumerator Wait3SecondSAndFadeOut()

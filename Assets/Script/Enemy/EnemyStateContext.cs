@@ -28,6 +28,7 @@ public class EnemyStateContext
             { EEnemyState.Hitting, new EnemyStateHitting(enemy)},
             { EEnemyState.Catch, new EnemyStateCatch(enemy)},
             { EEnemyState.Aim, new EnemyStateAim(enemy)},
+            { EEnemyState.Sparring, new EnemyStateSparring(enemy)},
         };
         _stateTable = table;
         _currentState = _stateTable[initState];

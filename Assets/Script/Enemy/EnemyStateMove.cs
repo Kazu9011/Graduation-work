@@ -11,6 +11,7 @@ public class EnemyStateMove : IEnemyState
     CapsuleCollider capsule;
     Rigidbody rb;
     float curretstaytime;
+    float curretrigiditytime;
     public EEnemyState State => EEnemyState.Move;
     public EnemyStateMove( Enemy plaeyr) => _enemy = plaeyr;
     public void Entry()
@@ -19,12 +20,22 @@ public class EnemyStateMove : IEnemyState
         Debug.Log("“GˆÚ“®");
         playerobj = GameObject.Find("DogPolyart");
         curretstaytime = _enemy.StayTime;
+        curretrigiditytime = _enemy.RigidityTime;
         capsule = _enemy.GetComponent<CapsuleCollider>();
         rb = _enemy.GetComponent<Rigidbody>();
     }
     public void Update()
     {
-        if (_enemy.ChangeStay)
+        if (_enemy.ChangeRigidity)
+        {
+            curretrigiditytime -= Time.deltaTime;
+            if (curretrigiditytime < 0)
+            {
+                _enemy.ChangeRigidity = false;
+                curretrigiditytime = _enemy.RigidityTime;
+            }
+        }
+        else if (_enemy.ChangeStay)
         {
             Debug.Log("“G’âŽ~’†");
             curretstaytime -= Time.deltaTime;

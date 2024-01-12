@@ -10,7 +10,9 @@ public enum EPlayerState
     Dead,
     Hitting,
     Catch,
-    Aim
+    Aim,
+    Cleave,
+    Sparring,
 }
 
 public class Player : MonoBehaviour
@@ -33,9 +35,12 @@ public class Player : MonoBehaviour
     public float PlayerSpeed = 50.0f;
     public float BallDistance = 2.0f;
     public float HitPower = 10.0f;
-    public float rotationSpeed = 5.0f; // ‰ñ“]‘¬“x‚ð’²®‚·‚é‚½‚ß‚Ì•Ï”
+    public float RotationSpeed = 5.0f; // ‰ñ“]‘¬“x‚ð’²®‚·‚é‚½‚ß‚Ì•Ï”
     private Quaternion targetRotation;
     public float StayTime = 0.8f;
+    //‚Â‚Î‚º‚è‡‚¢ŠÖŒW
+    public float CleaveTime = 4.0f; 
+    public float SparringTime=7.0f;
     private bool catchFlag;
     public bool CatchFlag
     {
@@ -147,7 +152,7 @@ public class Player : MonoBehaviour
     public void SetDirection(Vector3 dir)
     {
         targetRotation = Quaternion.LookRotation(dir);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, RotationSpeed * Time.deltaTime);
     }
     //=> rb.rotation = Quaternion.LookRotation(dir);
     public void SetState(EPlayerState state) => _context.ChangeState(state);

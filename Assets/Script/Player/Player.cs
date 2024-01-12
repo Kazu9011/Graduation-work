@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
             _dir = new Vector3(Input.GetAxis("L_Stick_H"), 0, Input.GetAxis("L_Stick_V")).normalized;
             //Debug.Log(Input.GetAxis("L_Stick_H"));
             //Debug.Log(Input.GetAxis("L_Stick_V"));
-            
+
         }
         
 

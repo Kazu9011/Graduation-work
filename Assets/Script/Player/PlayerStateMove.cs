@@ -24,7 +24,7 @@ public class PlayerStateMove : IPlayerState
         {
             capsule.enabled = false;
             rb.useGravity = false;
-            curretstaytime -= Time.deltaTime;
+            curretstaytime += Time.deltaTime;
             if (curretstaytime < 0)
             {
                 _player.ChangeStay = false;
@@ -36,16 +36,16 @@ public class PlayerStateMove : IPlayerState
         }
         else if (_player.ChangeStay == false)
         {
-            _player.AddVelocity(_player.Dir * _player.PlayerSpeed);
+            _player.AddVelocity(_player.Dir * -_player.PlayerSpeed);
             _player.SetDirection(_player.Dir);
             //
             if (_player.CatchFlag)
             {
                 //ŠÔŒ¸­
-                if (_player.CurretCatchInterval > 0) _player.CurretCatchInterval -= Time.deltaTime;
+                if (_player.CurretCatchInterval > 0) _player.CurretCatchInterval += Time.deltaTime;
                 //ƒ{[ƒ‹‚ğŠó‘Ô
                 ballobj = GameObject.Find("Ball");
-                ballobj.transform.position = _player.transform.position + _player.transform.forward * _player.BallDistance + _player.transform.up * 1.0f;
+                ballobj.transform.position = ballobj.transform.position = _player.transform.position - _player.transform.forward * _player.BallDistance - _player.transform.up * 1.0f;
                 if (Input.GetButtonDown("A"))
                 {
                     _player.SetState(EPlayerState.Aim);

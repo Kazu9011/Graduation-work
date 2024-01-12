@@ -9,7 +9,8 @@ public enum EEnemyState
     Dead,
     Hitting,
     Catch,
-    Aim
+    Aim,
+    Sparring
 }
 
 
@@ -34,6 +35,7 @@ public class Enemy : MonoBehaviour
     private Quaternion targetRotation;
     public float HitDistance = 1.5f;
     public float StayTime = 0.8f;
+    public float RigidityTime = 2.0f;
     //
     private bool catchFlag;
     public bool CatchFlag
@@ -86,6 +88,18 @@ public class Enemy : MonoBehaviour
         set
         {
             stay = value;
+        }
+    }
+    private bool rigidity;
+    public bool ChangeRigidity
+    {
+        get
+        {
+            return rigidity;
+        }
+        set
+        {
+            rigidity = value;
         }
     }
     private void Awake()

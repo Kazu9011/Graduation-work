@@ -28,6 +28,8 @@ public class PlayerStateContext
             { EPlayerState.Hitting, new PlayerStateHitting(player)},
             { EPlayerState.Catch, new PlayerStateCatch(player)},
             { EPlayerState.Aim, new PlayerStateAim(player)},
+            { EPlayerState.Cleave, new PlayerStateCleave(player)},
+            { EPlayerState.Sparring, new PlayerStateSparring(player)},
         };
         _stateTable = table;
         _currentState = _stateTable[initState];

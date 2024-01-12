@@ -13,7 +13,7 @@ public class PlayerStateMove : IPlayerState
     public PlayerStateMove( Player plaeyr) => _player = plaeyr;
     public void Entry()
     {
-        _player.SetAnimation("Move", true);
+        //_player.SetAnimation("Move", true);
         capsule = _player.GetComponent<CapsuleCollider>();
         rb = _player.GetComponent<Rigidbody>();
     }
@@ -38,17 +38,31 @@ public class PlayerStateMove : IPlayerState
         {
             _player.AddVelocity(_player.Dir * -_player.PlayerSpeed);
             _player.SetDirection(_player.Dir);
-            //
+            //ボールを所持状態
             if (_player.CatchFlag)
             {
                 //時間減少
+<<<<<<< HEAD
                 if (_player.CurretCatchInterval > 0) _player.CurretCatchInterval += Time.deltaTime;
                 //ボールを所持状態
                 ballobj = GameObject.Find("Ball");
                 ballobj.transform.position = ballobj.transform.position = _player.transform.position - _player.transform.forward * _player.BallDistance - _player.transform.up * 1.0f;
+=======
+                if (_player.CurretCatchInterval > 0) _player.CurretCatchInterval -= Time.deltaTime;
+                ballobj = GameObject.Find("Ball");
+                ballobj.transform.position = _player.transform.position + _player.transform.forward * _player.BallDistance + _player.transform.up * 0.2f;
+>>>>>>> feature/honzawa
                 if (Input.GetButtonDown("A"))
                 {
                     _player.SetState(EPlayerState.Aim);
+                }
+            }
+            else
+            {
+                //薙ぎ払い可能
+                if (Input.GetButtonDown("A"))
+                {
+                    _player.SetState(EPlayerState.Cleave);
                 }
             }
         }
@@ -61,6 +75,6 @@ public class PlayerStateMove : IPlayerState
     }
     public void Exit()
     {
-        _player.SetAnimation("Move", false);
+        //_player.SetAnimation("Move", false);
     }
 }

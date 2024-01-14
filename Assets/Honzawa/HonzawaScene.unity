@@ -783,8 +783,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196416262}
   m_LocalRotation: {x: -0.002443469, y: -0, z: -0, w: 0.999997}
-  m_LocalPosition: {x: 0, y: 0, z: 0.2}
-  m_LocalScale: {x: 0.3, y: 0.08, z: 0.3}
+  m_LocalPosition: {x: 0, y: 0, z: -0.2}
+  m_LocalScale: {x: 0.4, y: 0.08, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2473513097962988328}
@@ -4131,7 +4131,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062142057}
   m_LocalRotation: {x: -0.0024478035, y: -0, z: -0, w: 0.999997}
-  m_LocalPosition: {x: 0, y: 0, z: 0.08}
+  m_LocalPosition: {x: 0, y: 0, z: -0.08}
   m_LocalScale: {x: 0.1, y: 0.10000001, z: 0.10000001}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -7787,7 +7787,7 @@ Transform:
   m_GameObject: {fileID: 2073073095}
   m_LocalRotation: {x: -0.0024478035, y: -0, z: -0, w: 0.999997}
   m_LocalPosition: {x: 0, y: 0, z: 0.2}
-  m_LocalScale: {x: 0.3, y: 0.08, z: 0.3}
+  m_LocalScale: {x: 0.4, y: 0.08, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1909465350427491177}
@@ -9402,6 +9402,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1909465350427491177}
+  - component: {fileID: 1909465350427491183}
   - component: {fileID: 1909465350427491182}
   - component: {fileID: 1909465350427491178}
   - component: {fileID: 1909465350427491180}
@@ -11546,7 +11547,7 @@ MonoBehaviour:
   rotationSpeed: 200
   HitDistance: 8
   StayTime: 1
-  RigidityTime: 2
+  RigidityTime: 4
   CatchIntervalTime: 10
   CurretEnableTime: 0
   NavEnabledTime: 20
@@ -11566,6 +11567,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!95 &1909465350427491183
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239642400621978067}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46482dd3a601f0f43b359d6d6b670de5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!23 &1946390376622455675
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12783,7 +12804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbeaf30cf7f0b084c83404244f92b06c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerSpeed: 20
+  PlayerSpeed: 200
   BallDistance: 2
   HitPower: 20
   RotationSpeed: 150
@@ -12801,7 +12822,7 @@ Animator:
   m_GameObject: {fileID: 2961257089662220690}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46482dd3a601f0f43b359d6d6b670de5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1

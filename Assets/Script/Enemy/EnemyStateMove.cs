@@ -23,6 +23,7 @@ public class EnemyStateMove : IEnemyState
         curretrigiditytime = _enemy.RigidityTime;
         capsule = _enemy.GetComponent<CapsuleCollider>();
         rb = _enemy.GetComponent<Rigidbody>();
+        _enemy.CurretCatchInterval = 0.0f;
     }
     public void Update()
     {
@@ -33,6 +34,7 @@ public class EnemyStateMove : IEnemyState
             {
                 _enemy.ChangeRigidity = false;
                 curretrigiditytime = _enemy.RigidityTime;
+                _enemy.CatchFlag = false;
             }
         }
         else if (_enemy.ChangeStay)

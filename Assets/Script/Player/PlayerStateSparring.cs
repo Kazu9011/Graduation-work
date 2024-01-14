@@ -19,7 +19,8 @@ public class PlayerStateSparring : IPlayerState
         enemyobj = GameObject.Find("Enemy");
         enemy = enemyobj.GetComponent<Enemy>();
         curretsparringtime = _player.SparringTime;
-        rigidity = 3.0f;
+        rigidity = 4.0f;
+        //Debug.Log("‚Â‚Î‚º‚è‡‚¢ŠJn");
     }
     void IPlayerState.Update()
     {

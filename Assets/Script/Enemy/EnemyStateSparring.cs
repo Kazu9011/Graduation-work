@@ -11,16 +11,17 @@ public class EnemyStateSparring : IEnemyState
 
     public void Entry()
     {
+        _enemy.ChangeNavEnable(false);
+    }
+
+
+    public void Update()
+    {
         
     }
 
     public void Exit()
     {
-        
-    }
-
-    public void Update()
-    {
-        
+        _enemy.ChangeNavEnable(true);
     }
 }

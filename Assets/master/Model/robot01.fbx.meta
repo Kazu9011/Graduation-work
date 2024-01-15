@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e60f81a99cba57c42969b26d86c044ed
+guid: 0f458ba63c3927649aa6fed8dec74251
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -15,7 +15,7 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     removeConstantScaleCurves: 1
-    motionNodeName: <Root Transform>
+    motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
@@ -65,7 +65,7 @@ ModelImporter:
       name: "\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2|\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2Action
         (1)"
       takeName: "\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2|\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2Action"
-      internalID: 685370242407549659
+      internalID: -991255506243715998
       firstFrame: 0
       lastFrame: 10
       wrapMode: 0
@@ -95,7 +95,7 @@ ModelImporter:
       name: "\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2|\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2Action
         (2)"
       takeName: "\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2|\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2Action"
-      internalID: -8639508428171959900
+      internalID: -6653472063661492643
       firstFrame: 10
       lastFrame: 30
       wrapMode: 0
@@ -125,7 +125,7 @@ ModelImporter:
       name: "\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2|\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2Action
         (3)"
       takeName: "\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2|\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2Action"
-      internalID: 3195566802045061351
+      internalID: -8902209767716185321
       firstFrame: 50
       lastFrame: 70
       wrapMode: 0
@@ -155,7 +155,7 @@ ModelImporter:
       name: "\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2|\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2Action
         (4)"
       takeName: "\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2|\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2Action"
-      internalID: 7296576638541382726
+      internalID: 2541729513984837086
       firstFrame: 70
       lastFrame: 80
       wrapMode: 0
@@ -185,8 +185,8 @@ ModelImporter:
       name: "\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2|\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2Action
         (5)"
       takeName: "\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2|\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2Action"
-      internalID: -8954449984841956034
-      firstFrame: 80
+      internalID: -1497577083734265501
+      firstFrame: 80.1
       lastFrame: 90
       wrapMode: 0
       orientationOffsetY: 0
@@ -215,7 +215,7 @@ ModelImporter:
       name: "\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2|\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2Action
         (6)"
       takeName: "\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2|\u30A2\u30FC\u30DE\u30C1\u30E5\u30A2Action"
-      internalID: 4446506597262234777
+      internalID: -4544241171590634871
       firstFrame: 80
       lastFrame: 80.1
       wrapMode: 0

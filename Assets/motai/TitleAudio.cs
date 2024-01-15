@@ -6,7 +6,6 @@ public class TitleAudio : MonoBehaviour
 {
     private new AudioSource audio;
     float volume = 0.2f;
-
     bool Is_Audio = false;
 
     // Start is called before the first frame update

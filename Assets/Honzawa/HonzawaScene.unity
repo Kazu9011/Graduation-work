@@ -3864,6 +3864,7 @@ MonoBehaviour:
   StayTime: 1
   CleaveTime: 4
   SparringTime: 7
+  CatchTime: 10
   CatchIntervalTime: 10
 --- !u!1 &1023787165
 GameObject:
@@ -7771,6 +7772,7 @@ GameObject:
   - component: {fileID: 2073073099}
   - component: {fileID: 2073073098}
   - component: {fileID: 2073073097}
+  - component: {fileID: 2073073100}
   m_Layer: 0
   m_Name: CleaveCollision
   m_TagString: Untagged
@@ -7857,6 +7859,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073073095}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2073073100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073073095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65922ad5ad3a7ff4bb444ec05d993d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flag: 0
 --- !u!1 &2111188091
 GameObject:
   m_ObjectHideFlags: 0
@@ -11548,6 +11563,7 @@ MonoBehaviour:
   HitDistance: 8
   StayTime: 1
   RigidityTime: 4
+  CleaveTime: 1.5
   CatchIntervalTime: 10
   CurretEnableTime: 0
   NavEnabledTime: 20
@@ -12811,6 +12827,7 @@ MonoBehaviour:
   StayTime: 1
   CleaveTime: 1.5
   SparringTime: 7
+  CatchTime: 10
   CatchIntervalTime: 10
 --- !u!95 &2961257089662220694
 Animator:
@@ -16456,6 +16473,7 @@ MonoBehaviour:
   HitDistance: 8
   StayTime: 1
   RigidityTime: 2
+  CleaveTime: 4
   CatchIntervalTime: 10
   CurretEnableTime: 0
   NavEnabledTime: 20

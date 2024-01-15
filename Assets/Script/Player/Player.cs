@@ -17,6 +17,8 @@ public enum EPlayerState
 
 public class Player : MonoBehaviour
 {
+    GameObject enemyobj;
+    Enemy enemy;
     //
     GameObject starttimeobj;
     StartTimer starttimer;
@@ -41,6 +43,8 @@ public class Player : MonoBehaviour
     //Ç¬ÇŒÇ∫ÇËçáÇ¢ä÷åW
     public float CleaveTime = 4.0f; 
     public float SparringTime=7.0f;
+    public float CatchTime = 10.0f;
+    private float curretcatchtime=0.0f;
     private bool catchFlag;
     public bool CatchFlag
     {
@@ -102,6 +106,9 @@ public class Player : MonoBehaviour
     {
         starttimeobj = GameObject.Find("StartTime");
         starttimer = starttimeobj.GetComponent<StartTimer>();
+        enemyobj = GameObject.Find("Enemy");
+        enemy = enemyobj.GetComponent<Enemy>();
+        curretcatchtime = 0.0f;
     }
 
 
@@ -114,9 +121,20 @@ public class Player : MonoBehaviour
             _dir = new Vector3(Input.GetAxis("L_Stick_H"), 0, Input.GetAxis("L_Stick_V")).normalized;
             //Debug.Log(Input.GetAxis("L_Stick_H"));
             //Debug.Log(Input.GetAxis("L_Stick_V"));
-
         }
-        
+        if (CatchFlag)
+        {
+            curretcatchtime += Time.deltaTime;
+            if (CatchTime< curretcatchtime)
+            {
+                enemy.CleaveFlag = true;
+            }
+        }
+        else
+        {
+            curretcatchtime = 0.0f;
+            enemy.CleaveFlag = false;
+        }
 
         _context.Update();
 

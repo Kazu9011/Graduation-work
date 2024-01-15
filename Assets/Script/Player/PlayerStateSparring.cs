@@ -20,7 +20,6 @@ public class PlayerStateSparring : IPlayerState
         enemy = enemyobj.GetComponent<Enemy>();
         curretsparringtime = _player.SparringTime;
         rigidity = 4.0f;
-        //Debug.Log("つばぜり合い開始");
     }
     void IPlayerState.Update()
     {
@@ -34,6 +33,8 @@ public class PlayerStateSparring : IPlayerState
         {
             Debug.Log("チャージ失敗");
             enemy.SetState(EEnemyState.Move);
+            enemy.CatchFlag = true;
+            _player.CatchFlag = false;
             rigidity -= Time.deltaTime;
             if (rigidity<0.0f)
             {

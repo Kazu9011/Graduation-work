@@ -16,6 +16,7 @@ public class EnemyStateCleave : IEnemyState
         cleavecollision = cleavecollisionobj.GetComponent<EnemyCleaveCollision>();
         cleavecollision.flag = true;
         curretcleavetime = _enemy.CleaveTime;
+        Debug.Log("“G“ã‚¬•¥‚¢");
     }
 
     void IEnemyState.Update()

@@ -39,7 +39,6 @@ public class Enemy : MonoBehaviour
     public float RigidityTime = 2.0f;
     //Ç¬ÇŒÇ∫ÇËçáÇ¢ä÷åW
     public float CleaveTime = 4.0f;
-    public float SparringTime = 7.0f;
     private bool catchFlag;
     public bool CatchFlag
     {
@@ -103,6 +102,18 @@ public class Enemy : MonoBehaviour
         set
         {
             rigidity = value;
+        }
+    }
+    private bool cleaveflag;
+    public bool CleaveFlag
+    {
+        get
+        {
+            return cleaveflag;
+        }
+        set
+        {
+            cleaveflag = value;
         }
     }
     private void Awake()

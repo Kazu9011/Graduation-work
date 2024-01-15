@@ -10,7 +10,8 @@ public enum EEnemyState
     Hitting,
     Catch,
     Aim,
-    Sparring
+    Sparring,
+    Cleave
 }
 
 
@@ -36,7 +37,9 @@ public class Enemy : MonoBehaviour
     public float HitDistance = 1.5f;
     public float StayTime = 0.8f;
     public float RigidityTime = 2.0f;
-    //
+    //‚Â‚Î‚º‚è‡‚¢ŠÖŒW
+    public float CleaveTime = 4.0f;
+    public float SparringTime = 7.0f;
     private bool catchFlag;
     public bool CatchFlag
     {

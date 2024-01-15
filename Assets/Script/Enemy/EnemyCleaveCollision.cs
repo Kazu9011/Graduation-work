@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCleaveCollision : MonoBehaviour
+public class EnemyCleaveCollision : MonoBehaviour
 {
     GameObject playerobj;
     Player player;
@@ -11,7 +11,6 @@ public class PlayerCleaveCollision : MonoBehaviour
     GameObject ballobj;
     Ball ball;
     public bool flag;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +21,12 @@ public class PlayerCleaveCollision : MonoBehaviour
         ballobj = GameObject.Find("Ball");
         ball = ballobj.GetComponent<Ball>();
         flag = false;
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
     private void OnTriggerEnter(Collider collsionobj)
     {
@@ -44,6 +42,6 @@ public class PlayerCleaveCollision : MonoBehaviour
                     flag = false;
                 }
             }
-        }  
+        }
     }
 }

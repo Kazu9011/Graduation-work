@@ -29,6 +29,7 @@ public class EnemyStateContext
             { EEnemyState.Catch, new EnemyStateCatch(enemy)},
             { EEnemyState.Aim, new EnemyStateAim(enemy)},
             { EEnemyState.Sparring, new EnemyStateSparring(enemy)},
+            { EEnemyState.Cleave, new EnemyStateCleave(enemy)},
         };
         _stateTable = table;
         _currentState = _stateTable[initState];

@@ -100,6 +100,13 @@ public class EnemyStateMove : IEnemyState
                     _enemy.SetState(EEnemyState.Aim);
                 }
             }
+            else
+            {
+                if (false)
+                {
+                    _enemy.SetState(EEnemyState.Cleave);
+                }
+            }
         }
     }
     public void Exit()

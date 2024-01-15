@@ -18,7 +18,7 @@ public class EnemyStateHitting : IEnemyState
     
     public void Entry()
     {
-        Debug.Log("ボールを打った");
+        Debug.Log("敵がボールを打った");
         _enemy.CurretCatchInterval = 0;
         _enemy.CatchFlag = false;
         ballobj = GameObject.Find("Ball");

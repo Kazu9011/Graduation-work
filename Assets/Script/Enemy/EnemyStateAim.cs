@@ -7,12 +7,14 @@ public class EnemyStateAim : IEnemyState
     Enemy _enemy;
     GameObject ballobj;
     GameObject playerobj;
+    float AimTime = 1.0f;
+    float curretaimtime;
     public EEnemyState State => EEnemyState.Aim;
     public EnemyStateAim(Enemy plaeyr) => _enemy = plaeyr;
     public void Entry()
     {
-        Debug.Log("‘_‚¢ŠJŽn");
-        //_enemy.CatchFlag = false;
+        Debug.Log("“G‘_‚¢ŠJŽn");
+        curretaimtime = AimTime;
     }
 
 
@@ -29,6 +31,7 @@ public class EnemyStateAim : IEnemyState
         Quaternion look = Quaternion.LookRotation(aim);
         _enemy.transform.localRotation = look;
         ballobj.transform.position = _enemy.transform.position + _enemy.transform.forward * _enemy.BallDistance + _enemy.transform.up * 1.0f;
+        curretaimtime -= Time.deltaTime;
         _enemy.SetState(EEnemyState.Hitting);
         //
 

@@ -11,6 +11,7 @@ public class PlayerStateSparring : IPlayerState
     int sparringparameter = 50;
     int curretsparringparameter;
     float rigidity;
+    private bool sparringflag;
     public EPlayerState State => EPlayerState.Sparring;
     public PlayerStateSparring(Player plaeyr) => _player = plaeyr;
 
@@ -20,9 +21,11 @@ public class PlayerStateSparring : IPlayerState
         enemy = enemyobj.GetComponent<Enemy>();
         curretsparringtime = _player.SparringTime;
         rigidity = 4.0f;
+        sparringflag = false;
     }
     void IPlayerState.Update()
     {
+        
         curretsparringtime -= Time.deltaTime;
         if (Input.GetButtonDown("A"))
         {
@@ -31,14 +34,20 @@ public class PlayerStateSparring : IPlayerState
         }
         if (curretsparringtime < 0.0f)
         {
-            Debug.Log("チャージ失敗");
-            enemy.SetState(EEnemyState.Move);
-            enemy.CatchFlag = true;
-            _player.CatchFlag = false;
+            
             rigidity -= Time.deltaTime;
+            if (sparringflag == false)
+            {
+                Debug.Log("チャージ失敗");
+                enemy.SetState(EEnemyState.Move);
+                enemy.CatchFlag = true;
+                _player.CatchFlag = false;
+                sparringflag = true;
+            }
             if (rigidity<0.0f)
             {
                 _player.SetState(EPlayerState.Move);
+                sparringflag = false;
             }
         }
         if (curretsparringparameter> sparringparameter)

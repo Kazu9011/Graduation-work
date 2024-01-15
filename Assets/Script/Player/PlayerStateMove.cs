@@ -42,16 +42,9 @@ public class PlayerStateMove : IPlayerState
             if (_player.CatchFlag)
             {
                 //éûä‘å∏è≠
-<<<<<<< HEAD
-                if (_player.CurretCatchInterval > 0) _player.CurretCatchInterval += Time.deltaTime;
-                //É{Å[ÉãÇèäéùèÛë‘
-                ballobj = GameObject.Find("Ball");
-                ballobj.transform.position = ballobj.transform.position = _player.transform.position - _player.transform.forward * _player.BallDistance - _player.transform.up * 1.0f;
-=======
                 if (_player.CurretCatchInterval > 0) _player.CurretCatchInterval -= Time.deltaTime;
                 ballobj = GameObject.Find("Ball");
                 ballobj.transform.position = _player.transform.position + _player.transform.forward * _player.BallDistance + _player.transform.up * 0.2f;
->>>>>>> feature/honzawa
                 if (Input.GetButtonDown("A"))
                 {
                     _player.SetState(EPlayerState.Aim);

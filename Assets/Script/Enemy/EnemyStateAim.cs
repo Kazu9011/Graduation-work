@@ -30,10 +30,12 @@ public class EnemyStateAim : IEnemyState
         Vector3 aim = playerobj.transform.position - _enemy.transform.position;
         Quaternion look = Quaternion.LookRotation(aim);
         _enemy.transform.localRotation = look;
-        ballobj.transform.position = _enemy.transform.position + _enemy.transform.forward * _enemy.BallDistance + _enemy.transform.up * 1.0f;
+        ballobj.transform.position = _enemy.transform.position + _enemy.transform.forward * _enemy.BallDistance + _enemy.transform.up * 0.2f;
         curretaimtime -= Time.deltaTime;
-        _enemy.SetState(EEnemyState.Hitting);
-        //
+        if (curretaimtime<0.0f)
+        {
+            _enemy.SetState(EEnemyState.Hitting);
+        }
 
     }
 

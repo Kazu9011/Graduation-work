@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStateSparring : IPlayerState
 {
+
     GameObject enemyobj;
     Enemy enemy;
     Player _player;
@@ -12,6 +14,9 @@ public class PlayerStateSparring : IPlayerState
     int curretsparringparameter;
     float rigidity;
     private bool sparringflag;
+    //スライダー
+    GameObject cleavesliderobj;
+    Slider cleaveslider;
     public EPlayerState State => EPlayerState.Sparring;
     public PlayerStateSparring(Player plaeyr) => _player = plaeyr;
 
@@ -22,6 +27,11 @@ public class PlayerStateSparring : IPlayerState
         curretsparringtime = _player.SparringTime;
         rigidity = 4.0f;
         sparringflag = false;
+        cleavesliderobj = GameObject.Find("CleaveSlider");
+        cleaveslider = cleavesliderobj.GetComponent<Slider>();
+        cleavesliderobj.transform.position = new Vector2(960.0f, 540.0f);
+        curretsparringparameter = 0;
+        cleaveslider.value = 0;
     }
     void IPlayerState.Update()
     {
@@ -30,7 +40,10 @@ public class PlayerStateSparring : IPlayerState
         if (Input.GetButtonDown("A"))
         {
             Debug.Log("チャージ");
-            curretsparringparameter += Random.Range(1, 5);
+            int var;
+            var = Random.Range(1, 5);
+            curretsparringparameter += var;
+            cleaveslider.value += var;
         }
         if (curretsparringtime < 0.0f)
         {
@@ -43,6 +56,7 @@ public class PlayerStateSparring : IPlayerState
                 enemy.CatchFlag = true;
                 _player.CatchFlag = false;
                 sparringflag = true;
+                cleavesliderobj.transform.position = new Vector2(960.0f, -540.0f);
             }
             if (rigidity<0.0f)
             {
@@ -58,6 +72,7 @@ public class PlayerStateSparring : IPlayerState
             enemy.SetState(EEnemyState.Move);
             _player.CatchFlag = true;
             _player.SetState(EPlayerState.Move);
+            cleavesliderobj.transform.position = new Vector2(960.0f, -540.0f);
         }
     }
     public void Exit()
